@@ -25,4 +25,5 @@ What's Coming Next
 - AR Functionality
   
 ---------------☝️ADDITIONAL📝NOTES☝️-------------------------
+
 This build should properly run on iOS Physical Devices.
