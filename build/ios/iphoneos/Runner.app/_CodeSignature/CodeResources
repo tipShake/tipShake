@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		myxeSaYb7yU9M6wGGcXbAap5IsA=
+		sCunc9ewpkxJjk5z6q7Svt9khLY=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		bUy3knKWCRVfqS/CMESszujcDjU=
+		yG1vyZFD3lZK9ldFHwGZV2K5hnY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		7C4xf/W352vwbR0CtrKs9Y799Fc=
+		VpaZhcWyq83/ididoj159R6Ee2g=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		K4z4maHq/iBZE2MC2ioRYu+JaC8=
+		ucZdUHxqIGdqluKcLKSafyiKIP0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/Background%20Image%20Top.png</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		faCxMzzWp4UhDeLbfsqRlO/F8ic=
+		rZPhUbYWwm1wzBw3JqXdLkawQDw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/crypto_font_icons/font/cryptofont-webfont.ttf</key>
 		<data>
@@ -131,6 +131,10 @@
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/flutter_login/assets/images/ecorp.png</key>
+		<data>
+		fPD6+F3Vq+sf046sFF5+KZCXeL0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
 		<data>
@@ -144,13 +148,49 @@
 		<data>
 		ZZBP0NxLS0FpDnRGkYi6CqkYiuk=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/facebook_new.png</key>
+		<data>
+		jk6zBcOP1+h6lmi0HshzEvcs0C0=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/google_dark.png</key>
+		<data>
+		CDjh7STX8iaKIVC+9UrP6cBDUpE=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/google_light.png</key>
+		<data>
+		3FzRZxjIrhW1UE5wmwqij26qUPw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/facebook_new.png</key>
+		<data>
+		e2dJgpsS2UQTwePUJRbEz7bRh/0=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/google_dark.png</key>
+		<data>
+		42EbroLw4k0T7danh7JF9mvrTeo=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/google_light.png</key>
+		<data>
+		UGPbJ4H1QU+5PlLtHNCZ0tZLfdk=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/facebook_new.png</key>
+		<data>
+		gOa8kViwtYc8+H10hSY+PHmCyH8=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/google_dark.png</key>
+		<data>
+		vFLo98z8CQllRGyqwF12oa70pCM=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/google_light.png</key>
+		<data>
+		AKzmlW2KCuNghpE/NjMH07X42V8=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
 		kzk1wp8qHso+VmYD8lJ5+HidZCw=
 		</data>
 		<key>Frameworks/Flutter.framework/Flutter</key>
 		<data>
-		HZ+ut/p6EulnulSjg4+Pof0lhFI=
+		uJbfK9GwM46BmyKYubE7ZjQPZjI=
 		</data>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
 		<data>
@@ -238,7 +278,7 @@
 		</data>
 		<key>Frameworks/MTBBarcodeScanner.framework/MTBBarcodeScanner</key>
 		<data>
-		BHIL4ERBNRN7NmlF5613RcVn8js=
+		J1r1OkyS8PLCm+XEgp4Igr7rIhA=
 		</data>
 		<key>Frameworks/MTBBarcodeScanner.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -250,7 +290,7 @@
 		</data>
 		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf</key>
 		<data>
-		4HFpnebPDqcB3kbyjmjxeVKvI64=
+		v2lrS3sTpOK2Fw6i03J9sEACoXc=
 		</data>
 		<key>Frameworks/SwiftProtobuf.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -266,7 +306,7 @@
 		</data>
 		<key>Frameworks/barcode_scan2.framework/barcode_scan2</key>
 		<data>
-		mYXG78dCYGylRIeaWR/qoGbOnRs=
+		Dbql8e6OCREVVyrCp2XD4yf6kQo=
 		</data>
 		<key>Frameworks/camera.framework/Info.plist</key>
 		<data>
@@ -278,7 +318,7 @@
 		</data>
 		<key>Frameworks/camera.framework/camera</key>
 		<data>
-		OnVVM7fgPguXNWv4SUMmkLamLZg=
+		dTqd3V36CQd3iWZpODlo+BhpWLk=
 		</data>
 		<key>Frameworks/path_provider_ios.framework/Info.plist</key>
 		<data>
@@ -290,11 +330,23 @@
 		</data>
 		<key>Frameworks/path_provider_ios.framework/path_provider_ios</key>
 		<data>
-		ONVNxDHhRNtk+c53LZsTun9aCHg=
+		EzlAyx/4GT2+BYMMDVaHVVCxX2Q=
+		</data>
+		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
+		<data>
+		QLnZTCF027Fa2/uF5utTx+vSMl8=
+		</data>
+		<key>Frameworks/url_launcher_ios.framework/_CodeSignature/CodeResources</key>
+		<data>
+		TygIgtV+/Q6wB9xbB7SHaFQDxhU=
+		</data>
+		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
+		<data>
+		OlbOiXQyfkDpi5ZZul0+Vg6r8JE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0i75O5wjuzrh5Qar/+V2k3X2AjY=
+		0xJhJj5yn4LE3VNhYJhPb6CSOko=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -302,7 +354,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		Po2Jeg7VQoCd0UQwVv7nU3tKl5A=
+		JGE2qWKe60UBnMyJloKt2S9rgoM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -381,7 +433,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OwhY3PnsGI8IgHXvtgBIsRfdW76lp7ROzG1WSSmjkDo=
+			I9oAqi7wDOayXwI5eSYP5jqsSrbE5nfvaxUl7NH05ts=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -395,14 +447,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lZz1dTKESU2bu7ILFANbt+sK85xHtOBEP6MHqvnQsg8=
+			kWmUFdrT1sj/hk6mw/pjtUHZJHAgg1r4cmmtd4dzj1U=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qwvg+2SX3V5SDip1pLefjDP3f4nBfYMWzR4YGxZTANg=
+			See4NPi5A+Er9bxQ5sk9oaChIU1ZwvpA+jRsG7mgY3Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -416,7 +468,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ve9QAWgDdWxHmjTJQsbXTcyANxYo/VZVlmWJdXvdGxY=
+			gS8SMO+p1V0GcA1Xj9XWHUilsq0tvcpLnQzG0o3f9lE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/Background%20Image%20Top.png</key>
@@ -514,7 +566,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Cg/d3Hgt9PE829isDJA/VrAwqMg0EtSBNcZa2yHOO0=
+			40e9yhTt0GHOXZvSq1RpQxo7mC3SuM8kbnfhdboih5o=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/crypto_font_icons/font/cryptofont-webfont.ttf</key>
@@ -529,6 +581,13 @@
 			<key>hash2</key>
 			<data>
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/flutter_login/assets/images/ecorp.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/Q7I6ubQ6CHGZWoU3SML5ibD+7SKoGBFNWlPkV0gpF0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
@@ -552,6 +611,69 @@
 			kBTU+CzwK0WehA3WAbgZLiyXARfdq0hH4bn+D8fa/Fg=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/facebook_new.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2mkZg1P6yJw7lmrjD51aWL+IhxrLnUi2DWqerldzIvc=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/google_dark.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3Df/XPGuFUQJFG0r+zFPPxPsKg3vLn9tTciL2EpfjJg=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/2.0x/google_light.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eehrHCuvd+uoziIFxUhNDixFlzhWFpDykHZz6H7hel0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/facebook_new.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6ha2tnzRf1kTnY8xWk0Uv9PoiGkkc/z5ug8s9QHFl9E=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/google_dark.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+rRqltUHamaJrhAqj+Q77xtFaRu0ZJvg/UjCX/VCn2w=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/3.0x/google_light.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jt5dB88sein5oPbYO9DVgAzZsvBAuxzPh7SNg4Aii+k=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/facebook_new.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2g0D053cn0EFKyz356oP2GSZV85m/F8YK7lVMRvVW/Q=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/google_dark.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TOuOKzT+b29MfBITkxI66D6/c4JSXa63jj7PfiqT+5E=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/sign_in_button/assets/logos/google_light.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bXLPjBfQxF0mJKnumt7b+egkIvA6byvWCu7bqUODgXc=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<dict>
 			<key>hash2</key>
@@ -563,7 +685,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9AgbDzCCi9UrhQFEescZ3R4oZIy8VUCI5IRE4GQxuZ0=
+			z6cgERWYbESCz69J/XcIIH4vfSo2CRwbJ13cOtB0c+Q=
 			</data>
 		</dict>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
@@ -717,7 +839,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L6YgzSaCDS6/yY/cNJ/K8uwPveslBrtXSOVeIj96gII=
+			tpmuvd4e9bGUPlnIbFKWhJiklMvQs9rvxiic1+rRNgA=
 			</data>
 		</dict>
 		<key>Frameworks/MTBBarcodeScanner.framework/_CodeSignature/CodeResources</key>
@@ -738,7 +860,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gFHygS7xXnYPf21gki9c4dFwYzrMd8+ad7RTiUJqKR0=
+			SzMj+iG01xvUA7SU0xXRNln43nynNwN1+KDr03kT9wI=
 			</data>
 		</dict>
 		<key>Frameworks/SwiftProtobuf.framework/_CodeSignature/CodeResources</key>
@@ -766,7 +888,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/lzUc9oaH+GyaV7Byzaye6xnCFimk/eznNWCsjyYIOk=
+			WcBO1V/hAPQOpwMDpBVy61GqIvj1OHcXw7BRIsHK3Mw=
 			</data>
 		</dict>
 		<key>Frameworks/camera.framework/Info.plist</key>
@@ -787,7 +909,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fKD9jV4FSmoxSH4WrxLZvevT5NTsnlXkb5beQsCAAuU=
+			X62si8mUCMwfaim99Qq4RB6Swo2XW68Dln/7ch7l2Kc=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_ios.framework/Info.plist</key>
@@ -808,14 +930,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5I7sDrMUmA0Qdscf+yFwJUQoYjlDaLJ7zCLLoB7k684=
+			tmfORMHMgFK4R3aWkCmUxcwWSMg+GhGwBMvFGtHWdOo=
+			</data>
+		</dict>
+		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kF5C7ocBDd/KEV+0pBY/EhbMp0AXzRYF6eu4nGTN8uI=
+			</data>
+		</dict>
+		<key>Frameworks/url_launcher_ios.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bPba+t3uz7o9XXzbNdcTTwklSDvE5lbFCYWIIaUcYEg=
+			</data>
+		</dict>
+		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UQPaDsxFx3GN0nXaszn7GoBYsvhZ1F49ra1rrUwL62A=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dEKijVsCU26OPZtn1Y9RvIc41RfwLHZGSTFftxO2gbk=
+			VQmSVnFm8TqCYL9tVdSogNG7Oac4b+fkQYp0po0hd+w=
 			</data>
 		</dict>
 	</dict>

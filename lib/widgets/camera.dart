@@ -44,13 +44,47 @@ class ScannerState extends State<Scanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff23242f),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Color(0xff689680),
-        label: Text("SCAN SHAKER"),
-        onPressed: _scanQR,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );
+        backgroundColor: const Color(0xff23242f),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //Description
+              Container(
+                height: 250,
+                width: 250,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/images/placeholderqr.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+
+              //Description
+              Text(
+                'Show your Code to another Tipper',
+                style: TextStyle(
+                  fontFamily: 'Poppins-Regular',
+                  fontSize: 16,
+                  color: const Color(0xffffffff),
+                  height: 1.5,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              ElevatedButton(
+                  onPressed: _scanQR,
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff689680),
+                  ),
+                  child: Text("START TIPPING")),
+              SizedBox(
+                height: 5,
+              ),
+            ],
+          ),
+        ));
   }
 }

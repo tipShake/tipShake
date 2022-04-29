@@ -31,7 +31,7 @@ class _tipstartState extends State<tipstart> {
             ),
           ),
           SizedBox(
-            height: 34,
+            height: 30,
           ),
           //Description
           Text(

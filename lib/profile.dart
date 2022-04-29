@@ -14,11 +14,6 @@ class _profileScreenState extends State<profileScreen> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff6b9681),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/Background Image Top.png'))),
-        ),
         toolbarHeight: 155,
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,10 +61,6 @@ class _profileScreenState extends State<profileScreen> {
                     fontWeight: FontWeight.w500,
                     height: 1.1428571428571428,
                   ),
-                  textHeightBehavior:
-                      TextHeightBehavior(applyHeightToFirstAscent: false),
-                  textAlign: TextAlign.center,
-                  softWrap: false,
                 ),
               ],
             )
@@ -79,15 +70,12 @@ class _profileScreenState extends State<profileScreen> {
       backgroundColor: const Color(0xff23242f),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
                   'Profile Settings',
                   style: TextStyle(
                     fontFamily: 'Poppins-SemiBold',
@@ -96,9 +84,12 @@ class _profileScreenState extends State<profileScreen> {
                     height: 1.6,
                   ),
                 ),
-              ],
+              ),
             ),
-            Container(
+            Card(
+                child: SizedBox(
+              height: 320,
+              width: 327,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -400,13 +391,7 @@ class _profileScreenState extends State<profileScreen> {
                   ),
                 ],
               ),
-              height: 320,
-              width: 327,
-              decoration: BoxDecoration(
-                color: const Color(0xffffffff),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-            ),
+            )),
           ],
         ),
       ));
