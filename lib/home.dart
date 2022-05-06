@@ -1,9 +1,17 @@
 import 'package:app/addmoney.dart';
 import 'package:app/profile.dart';
-import 'package:app/tipstart.dart';
-import 'package:app/tipsuccess.dart';
+import 'package:app/tipping/tipstart.dart';
+import 'package:app/tipping/tipsuccess.dart';
+import 'package:app/widgets/navbar.dart';
+import 'package:app/widgets/scanner.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import 'package:flutterfire_ui/firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:app/login.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
@@ -21,12 +29,14 @@ class _HomePageState extends State<HomePage> {
   ContainerTransitionType _containerTransitionType =
       ContainerTransitionType.fade;
 
+  final user = 'Larry';
   get width => 5;
+  String dropdownValue = 'XRP';
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF23242F),
-        flexibleSpace: Container(),
         toolbarHeight: 120,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -87,59 +97,58 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                },
+                onPressed: () {},
                 child: Text(
                   'HOME',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    color: const Color(0xff26c165),
-                    letterSpacing: 1.246,
-                    fontWeight: FontWeight.w500,
-                    height: 1.1428571428571428,
-                  ),
                 )),
             TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const tipstart()),
+                    MaterialPageRoute(builder: (context) => Scanner()),
                   );
                 },
                 child: Text(
                   'TIP',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    color: const Color(0xff26c165),
-                    letterSpacing: 1.246,
-                    fontWeight: FontWeight.w500,
-                    height: 1.1428571428571428,
-                  ),
                 )),
             TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const profileScreen()),
+                        builder: (context) => ProfileScreen(
+                              children: [
+                                DropdownButton<String>(
+                                  value: dropdownValue,
+                                  icon: const Icon(
+                                      Icons.account_balance_wallet_rounded),
+                                  elevation: 16,
+                                  style: const TextStyle(color: Colors.white),
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      dropdownValue = newValue!;
+                                    });
+                                  },
+                                  items: <String>['XRP', 'BTC', 'MANA', 'USDC']
+                                      .map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                )
+                              ],
+                              actions: [
+                                SignedOutAction((context) {
+                                  Navigator.pushReplacementNamed(context, '/');
+                                })
+                              ],
+                            )),
                   );
                 },
                 child: Text(
                   'PROFILES',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    color: const Color(0xff26c165),
-                    letterSpacing: 1.246,
-                    fontWeight: FontWeight.w500,
-                    height: 1.1428571428571428,
-                  ),
                 )),
           ],
         ),
@@ -423,4 +432,34 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ]));
+}
+
+Widget displayUserInformation(context, snapshot) {
+  final user = snapshot.data;
+
+  return Column(
+    children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          "Name: ${user.displayName ?? 'Anonymous'}",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          "Email: ${user.email ?? 'Anonymous'}",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          "Created: ${DateFormat('MM/dd/yyyy').format(user.metadata.creationTime)}",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    ],
+  );
 }

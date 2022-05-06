@@ -1,4 +1,4 @@
-import 'package:app/widgets/camera.dart';
+import 'package:app/widgets/scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:app/home.dart';

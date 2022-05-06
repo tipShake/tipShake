@@ -1,9 +1,7 @@
-import 'package:adobe_xd/adobe_xd.dart';
-import 'package:app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:app/home.dart';
-
+import 'package:flutterfire_ui/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {
@@ -15,7 +13,34 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return SignInScreen(
+                actions: [
+                  AuthStateChangeAction<SignedIn>((context, _) {
+                    Navigator.of(context).pushReplacementNamed('/HomePage');
+                  }),
+                ],
+                headerBuilder: (context, constraints, _) {
+                  return Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Image(image: AssetImage('assets/images/logoBW.png')),
+                  );
+                },
+                providerConfigs: [
+                  EmailProviderConfiguration(),
+                ]);
+          }
+          return HomePage();
+        });
+  }
+}
+
+/*
+Scaffold(
         backgroundColor: Color(0xFF23242F),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,19 +75,6 @@ class _LoginState extends State<Login> {
                     fontSize: 28,
                     color: const Color(0xffffffff),
                     height: 1.4285714285714286,
-                  ),
-                  textHeightBehavior:
-                      TextHeightBehavior(applyHeightToFirstAscent: false),
-                  softWrap: false,
-                ),
-                Container(
-                  width: 65,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: const AssetImage('assets/images/tipShakeS.png'),
-                      fit: BoxFit.fill,
-                    ),
                   ),
                 ),
               ],
@@ -139,7 +151,10 @@ class _LoginState extends State<Login> {
                     )),
               ],
             ),
+            Row(
+              children: [RegisterScreen()],
+            )
           ],
         ),
-      );
-}
+      )
+ */
