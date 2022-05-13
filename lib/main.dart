@@ -1,7 +1,4 @@
-import 'package:app/home.dart';
 import 'package:app/login.dart';
-import 'package:app/tipping/tipping.dart';
-import 'package:app/widgets/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,6 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   FlutterFireUIAuth.configureProviders([
     EmailProviderConfiguration(),
   ]);

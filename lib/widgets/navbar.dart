@@ -13,7 +13,9 @@ Widget navBar(context, snapshot) {
     unselectedIconColor: Colors.white.withOpacity(0.6),
     items: [
       FloatingNavBarItem(
-          iconData: Icons.home_outlined, page: HomePage(), title: 'Home'),
+          iconData: Icons.home_outlined,
+          page: HomePage(user: snapshot.data),
+          title: 'Home'),
       FloatingNavBarItem(iconData: Icons.money, page: tipstart(), title: 'Tip'),
       FloatingNavBarItem(
           iconData: Icons.verified_user,
