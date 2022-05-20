@@ -6,11 +6,11 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		xUPg7WpgtEIBxS+zmURybHfIW2Q=
+		FePqqdVicRVnpEWXwxJSPoENefg=
 		</data>
 		<key>gRPCCertificates-Cpp.bundle/Info.plist</key>
 		<data>
-		HvH+33uhvUeJOPOJ+M7IuJV6bnU=
+		DdLSS4BxKgNx1WIEAkvRj3JLyS0=
 		</data>
 		<key>gRPCCertificates-Cpp.bundle/roots.pem</key>
 		<data>
@@ -21,13 +21,21 @@
 	<dict>
 		<key>gRPCCertificates-Cpp.bundle/Info.plist</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			DdLSS4BxKgNx1WIEAkvRj3JLyS0=
+			</data>
 			<key>hash2</key>
 			<data>
-			KWTXM/i/As6ZlqlJleqtiZVLQeriWcQmKmJKBPHKxMg=
+			mea40HULm4N2rOu7NqMaPNQ+6UEyK7yHR3fUC8dgTdk=
 			</data>
 		</dict>
 		<key>gRPCCertificates-Cpp.bundle/roots.pem</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			fKPpDnXJArmBT4pB8zmpeWVIzCc=
+			</data>
 			<key>hash2</key>
 			<data>
 			lhQzRMSuEJWIElssQdXa9lSl+vxuI/rDf3uj0p2n53Y=

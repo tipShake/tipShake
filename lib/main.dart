@@ -19,17 +19,7 @@ void main() async {
     //---------Theme Start -----------------------------
 
     title: 'Tipshake',
-    theme: ThemeData(
-      // Define the default brightness and colors.
-      brightness: Brightness.dark,
 
-      // Define the default font family.
-      fontFamily: 'Poppins',
-
-      // Define the default `TextTheme`. Use this to specify the default
-      // text styling for headlines, titles, bodies of text, and more.
-      textTheme: const TextTheme(),
-    ),
     //---------Theme End -----------------------------
 
     home: Login(),

@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  animated_flip_counter:
+    dependency: "direct main"
+    description:
+      name: animated_flip_counter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.4"
   animations:
     dependency: "direct main"
     description:
@@ -127,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  counter_button:
+    dependency: "direct main"
+    description:
+      name: counter_button
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   cross_file:
     dependency: transitive
     description:

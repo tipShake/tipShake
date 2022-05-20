@@ -1,27 +1,31 @@
-import 'package:app/addmoney.dart';
-import 'package:app/login.dart';
 import 'package:app/tipping/tipstart.dart';
 import 'package:app/widgets/scanner.dart';
-import 'package:auto_size_text_field/auto_size_text_field.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.user}) : super(key: key);
 
   final User user;
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  num tipBal = 0;
+  num accBal = 0;
+  String accountBal = "\$";
+
   Widget build(BuildContext context) {
-    double accBal = 0.00;
-    String accountBal = "\$";
     String fullBal = accountBal + accBal.toString();
+    String tipToday = accountBal + tipBal.toString();
+
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -51,7 +55,7 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    user.email!,
+                    widget.user.email!,
                     style: TextStyle(
                       fontFamily: 'Poppins-Bold',
                       fontSize: 20,
@@ -72,11 +76,6 @@ class HomePage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'HOME',
-                  )),
               TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -109,7 +108,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         backgroundColor: const Color(0xFF6B9681),
-        body: Column(children: [
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           //Card Balance
           Card(
               color: Color(0xFF24B781),
@@ -237,7 +236,10 @@ class HomePage extends StatelessWidget {
                               Container(
                                 height: 34,
                                 width: 34,
-                                child: CircleAvatar(),
+                                child: CircleAvatar(
+                                  child: Image.network(
+                                      'https://isteam.wsimg.com/ip/a3fe5ef1-b3dc-4156-b365-a700ef65fb35/fb_2224846467552818_1440x1080/:/cr=t:0%25,l:12.5%25,w:75%25,h:100%25/rs=w:730,h:730,cg:true'),
+                                ),
                               ),
                             ],
                           ),
@@ -245,7 +247,7 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Samantha West ',
+                                ' Hard Yacht Cafe ',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 15,
@@ -281,7 +283,10 @@ class HomePage extends StatelessWidget {
                               Container(
                                 height: 34,
                                 width: 34,
-                                child: CircleAvatar(),
+                                child: CircleAvatar(
+                                  child: Image.network(
+                                      'http://owlmetals.com/wp-content/uploads/2013/07/Logo_Official2.png'),
+                                ),
                               ),
                             ],
                           ),
@@ -289,7 +294,7 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                ' Sarah Lee ',
+                                ' Owl Metals ',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 15,
@@ -299,7 +304,7 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            'Paid +\$35',
+                            'Paid +\$87',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -332,7 +337,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           Text(
-            fullBal,
+            tipToday,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 47,
@@ -342,22 +347,132 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Spacer(),
-//Add Money To Your Account
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+              //Add Money To Your Account
 
-          FloatingActionButton.extended(
-            onPressed: () {
-              accBal = 2;
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () {
+                  setState(() {
+                    tipBal++;
+                  });
 
-              print(accBal);
-              print(fullBal);
-            },
-            label: const Text('Add Money'),
-            icon: const Icon(Icons.attach_money),
-            backgroundColor: Colors.green,
+                  print(tipToday);
+
+                  final snackBar = SnackBar(
+                    content:
+                        Text("Add " + tipBal.toString() + ' To Account 0000'),
+                    action: SnackBarAction(
+                      label: 'Add',
+                      onPressed: () {
+                        setState(() {
+                          accBal = tipBal;
+                        });
+                      },
+                    ),
+                  );
+
+                  // Find the ScaffoldMessenger in the widget tree
+                  // and use it to show a SnackBar.
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Text('+1'),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () {
+                  setState(() {
+                    tipBal = tipBal + 2;
+                  });
+
+                  print(tipToday);
+
+                  final snackBar = SnackBar(
+                    content: Text("Add $tipBal To Account 0000"),
+                    action: SnackBarAction(
+                      label: 'Add',
+                      onPressed: () {
+                        setState(() {
+                          accBal = tipBal;
+                        });
+                      },
+                    ),
+                  );
+
+                  // Find the ScaffoldMessenger in the widget tree
+                  // and use it to show a SnackBar.
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Text('+2'),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () {
+                  setState(() {
+                    tipBal = tipBal + 5;
+                  });
+
+                  print(tipToday);
+
+                  final snackBar = SnackBar(
+                    content: Text("Add $tipBal To Account 0000"),
+                    action: SnackBarAction(
+                      label: 'Add',
+                      onPressed: () {
+                        setState(() {
+                          accBal = tipBal;
+                        });
+                      },
+                    ),
+                  );
+
+                  // Find the ScaffoldMessenger in the widget tree
+                  // and use it to show a SnackBar.
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Text('+5'),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () {
+                  setState(() {
+                    tipBal = tipBal + 10;
+                  });
+
+                  print(tipToday);
+
+                  final snackBar = SnackBar(
+                    content: Text("Add $tipBal To Account 0000"),
+                    action: SnackBarAction(
+                      label: 'Add',
+                      onPressed: () {
+                        setState(() {
+                          accBal = tipBal;
+                        });
+                      },
+                    ),
+                  );
+
+                  // Find the ScaffoldMessenger in the widget tree
+                  // and use it to show a SnackBar.
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Text('+10'),
+              ),
+            ],
           ),
+
           Spacer()
         ]));
   }
-
-  final TextEditingController _controller = TextEditingController(text: "\$");
 }
