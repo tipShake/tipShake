@@ -2,6 +2,7 @@ import 'package:crypto_font_icons/crypto_font_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:app/main.dart';
 
 // Link to DB
 final List data = [
@@ -53,158 +54,236 @@ class _moneyswipeState extends State<moneyswipe> {
 
 class Card extends StatelessWidget {
   // Made to distinguish cards
-  // Add your own applicable data here
   final Color color;
+
   Card(this.color);
 
+  int _value = 1;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        //Ammount
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Amount Tipped',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 25,
-                color: const Color(0xffffffff),
-                fontWeight: FontWeight.w600,
-                height: 0.96,
+    return Scaffold(
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'LOWER',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color(0xff0ba9d4),
+                      fontWeight: FontWeight.w600,
+                      height: 1.1702127659574468,
+                    ),
+                  )),
+              Text(
+                'DENOMINATION',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: Color(0xff0ba9d4),
+                  fontWeight: FontWeight.w600,
+                  height: 1.1702127659574468,
+                ),
               ),
-              textHeightBehavior:
-                  TextHeightBehavior(applyHeightToFirstAscent: false),
-              textAlign: TextAlign.center,
-              softWrap: false,
-            ),
-          ],
-        ),
-
-        //Money Spent
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '000.00',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 40,
-                color: const Color(0xffffffff),
-                fontWeight: FontWeight.w600,
-                height: 1.1702127659574468,
-              ),
-              textHeightBehavior:
-                  TextHeightBehavior(applyHeightToFirstAscent: false),
-              softWrap: false,
-            ),
-          ],
-        ),
-        //Current Balance
-        Text(
-          'Wallet 000.00',
-          style: TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 30,
-            color: const Color(0xffffffff),
-            fontWeight: FontWeight.w500,
-            height: 1.1714285714285715,
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'HIGHER',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Color(0xff0ba9d4),
+                      fontWeight: FontWeight.w600,
+                      height: 1.1702127659574468,
+                    ),
+                  )),
+            ],
           ),
-          textHeightBehavior:
-              TextHeightBehavior(applyHeightToFirstAscent: false),
-          softWrap: false,
         ),
-
-        //Swipeable Cards
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Stack(
-              alignment: Alignment.bottomCenter,
+            //Ammount
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'Amount Tipped',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 25,
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+
+            //Money Spent
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  '000.00',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 40,
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w600,
+                    height: 1.1702127659574468,
+                  ),
+                  textHeightBehavior:
+                      TextHeightBehavior(applyHeightToFirstAscent: false),
+                  softWrap: false,
+                ),
+              ],
+            ),
+            //Current Balance
+            Text(
+              'Wallet 000.00',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 30,
+                color: const Color(0xffffffff),
+                fontWeight: FontWeight.w500,
+                height: 1.1714285714285715,
+              ),
+            ),
+
+            //Swipeable Cards
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 350,
-                  width: 250,
-                  child: Swipable(
-                    horizontalSwipe: false,
-                    // Set the swipable widget
-                    child: RotatedBox(
-                      quarterTurns: 3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            alignment: Alignment.center,
-                            image:
-                                const AssetImage('assets/images/pinkbill.png'),
-                            fit: BoxFit.contain,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(3, 0),
-                              blurRadius: 6,
+                Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    SizedBox(
+                      height: 350,
+                      width: 250,
+                      child: Swipable(
+                        horizontalSwipe: false,
+                        // Set the swipable widget
+                        child: RotatedBox(
+                          quarterTurns: 3,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                alignment: Alignment.center,
+                                image: const AssetImage(
+                                    'assets/images/pinkbill.png'),
+                                fit: BoxFit.contain,
+                              ),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color(0x29000000),
+                                  offset: Offset(3, 0),
+                                  blurRadius: 6,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 90,
-                      width: 250,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff23292f),
-                          borderRadius: BorderRadius.circular(3.0),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                    Row(
+                      children: [
+                        Column(
                           children: [
                             Text(
-                              'XRP',
+                              'Amount Tipped',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 23,
+                                fontSize: 25,
                                 color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w500,
-                                height: 1.2608695652173914,
+                                fontWeight: FontWeight.w600,
+                                height: 0.96,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.center,
+                              softWrap: false,
+                            ),
+                            Text(
+                              '000.00',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 35,
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w300,
+                                height: 1.5714285714285714,
                               ),
                               textHeightBehavior: TextHeightBehavior(
                                   applyHeightToFirstAscent: false),
                               softWrap: false,
                             ),
-
-                            //Crypto Icon
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: SizedBox(
-                                height: 50,
-                                width: 50,
-                                child: SvgPicture.network(
-                                  'https://www.cryptofonts.com/img/icons/xrp.svg',
-                                  color: Colors.white,
-                                ),
-                              ),
-                            )
                           ],
                         ),
-                      ),
-                    ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Column(
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  'Amount Tipped',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 25,
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    height: 0.96,
+                                  ),
+                                  textHeightBehavior: TextHeightBehavior(
+                                      applyHeightToFirstAscent: false),
+                                  textAlign: TextAlign.center,
+                                  softWrap: false,
+                                ),
+                                Text(
+                                  '000.00',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 35,
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w300,
+                                    height: 1.5714285714285714,
+                                  ),
+                                  textHeightBehavior: TextHeightBehavior(
+                                      applyHeightToFirstAscent: false),
+                                  softWrap: false,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Column(children: [
+                              /*
+                              DropdownButton(
+                                items: DropdownMenuItem(
+                                  child: Text("First Item"),
+                                  value: 1,
+                                ),
+                                onChanged: (value) {
+                                  setState(() {});
+                                },
+                              )
+                              
+                               */
+                            ])
+                          ],
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ],
             ),
-          ],
-        ),
 
-        //Crypto Selection
-      ],
-    );
+            //Crypto Selection
+          ],
+        ));
   }
 }
+
+void setState(Null Function() param0) {}
