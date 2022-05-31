@@ -103,53 +103,52 @@ class Card extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            //Ammount
+            //Crypto Profile Pic & UserName
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'Amount Tipped',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 25,
-                    color: Color(0xffffffff),
-                    fontWeight: FontWeight.w600,
-                  ),
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      height: 180,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const AssetImage(
+                              'assets/images/placeholderqr.png'),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'Jessica Smith',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 25,
+                        color: const Color(0xffffffff),
+                        fontWeight: FontWeight.w500,
+                        height: 1.64,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      softWrap: false,
+                    ),
+                    Text(
+                      'mwmfigfphbyQaLRkT4xHv8aGQY4n7JrbMb',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 15,
+                        color: const Color(0xffffffff),
+                        height: 1.6666666666666667,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      softWrap: false,
+                    ),
+                  ],
                 ),
               ],
             ),
-
-            //Money Spent
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  '000.00',
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 40,
-                    color: Color(0xffffffff),
-                    fontWeight: FontWeight.w600,
-                    height: 1.1702127659574468,
-                  ),
-                  textHeightBehavior:
-                      TextHeightBehavior(applyHeightToFirstAscent: false),
-                  softWrap: false,
-                ),
-              ],
-            ),
-            //Current Balance
-            Text(
-              'Wallet 000.00',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 30,
-                color: const Color(0xffffffff),
-                fontWeight: FontWeight.w500,
-                height: 1.1714285714285715,
-              ),
-            ),
-
             //Swipeable Cards
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -157,6 +156,7 @@ class Card extends StatelessWidget {
                 Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
+                    //Money Swipe
                     SizedBox(
                       height: 350,
                       width: 250,
@@ -185,43 +185,15 @@ class Card extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              'Amount Tipped',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 25,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                height: 0.96,
-                              ),
-                              textHeightBehavior: TextHeightBehavior(
-                                  applyHeightToFirstAscent: false),
-                              textAlign: TextAlign.center,
-                              softWrap: false,
-                            ),
-                            Text(
-                              '000.00',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 35,
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w300,
-                                height: 1.5714285714285714,
-                              ),
-                              textHeightBehavior: TextHeightBehavior(
-                                  applyHeightToFirstAscent: false),
-                              softWrap: false,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 25,
-                        ),
-                        Column(
+                    //Amount Tipped
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xff23292f),
+                        borderRadius: BorderRadius.circular(3.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
                           children: [
                             Column(
                               children: [
@@ -255,35 +227,55 @@ class Card extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              width: 25,
+                              width: 65,
                             ),
-                            Column(children: [
-                              /*
-                              DropdownButton(
-                                items: DropdownMenuItem(
-                                  child: Text("First Item"),
-                                  value: 1,
-                                ),
-                                onChanged: (value) {
-                                  setState(() {});
-                                },
-                              )
-                              
-                               */
-                            ])
+                            Column(
+                              children: [
+                                TextButton(
+                                    style: TextButton.styleFrom(
+                                        primary: Colors.white,
+                                        textStyle: TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold)),
+                                    onPressed: () {},
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(CryptoFontIcons.XRP),
+                                        ),
+                                        Text(
+                                          'XRP',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 23,
+                                            color: const Color(0xffffffff),
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.2608695652173914,
+                                          ),
+                                          textHeightBehavior:
+                                              TextHeightBehavior(
+                                                  applyHeightToFirstAscent:
+                                                      false),
+                                          softWrap: false,
+                                        ),
+                                      ],
+                                    ))
+                              ],
+                            )
                           ],
                         ),
-                      ],
+                      ),
                     )
+                    //TODO ADD Crypto Selection
+                    //TODO ADD LOWER/HIGHER
                   ],
                 ),
               ],
             ),
-
-            //Crypto Selection
           ],
         ));
   }
 }
-
-void setState(Null Function() param0) {}

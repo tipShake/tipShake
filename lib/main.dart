@@ -18,7 +18,9 @@ void main() async {
   runApp(MaterialApp(
     //---------Theme Start -----------------------------
     title: 'Tipshake',
-    theme: new ThemeData(scaffoldBackgroundColor: const Color(0xFFEFEFEF)),
+    theme: new ThemeData(
+      scaffoldBackgroundColor: const Color(0xff23292f),
+    ),
     //---------Theme End -----------------------------
 
     home: Login(),
