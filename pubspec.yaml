@@ -57,6 +57,11 @@ dependencies:
   firebase: ^9.0.3
   animated_flip_counter: ^0.2.4
   counter_button: ^1.0.1
+  ionicons: ^0.1.2
+  google_fonts: ^3.0.1
+  sliding_up_panel: ^2.0.0+1
+  number_pad: ^1.0.1
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

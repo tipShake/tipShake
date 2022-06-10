@@ -10,15 +10,15 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		F9jx5dAuajGIyKw13nTpqAHZQEk=
+		+VaK1IK62gQ1fWRd2D6/VKO15b4=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		9CDv1CcFYj82zvkjgHf1VlWn6h4=
+		b4cZYB1gCPBd6FHT6ck7Fbsq31I=
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		EqtRWIcJQiJCQdHD149qiUDF3q4=
+		ZfSsIKfT7a+D0/AC5YgFbmm2xJI=
 		</data>
 		<key>flutter_assets/assets/images/.DS_Store</key>
 		<data>
@@ -31,6 +31,10 @@
 		<key>flutter_assets/assets/images/Background%20Image.png</key>
 		<data>
 		LAoVXbZYMY0LMJO3yEtvynSDpgI=
+		</data>
+		<key>flutter_assets/assets/images/QRCode.png</key>
+		<data>
+		NuhjbK7HN1so6f9s/PJmzcDnwvI=
 		</data>
 		<key>flutter_assets/assets/images/logoBW.png</key>
 		<data>
@@ -78,7 +82,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		N+oB+hLQOQHJn7Jyp2KqMKi7Aok=
+		XHGYRqpD8/6ojP3o++SvPPJiYuY=
 		</data>
 		<key>flutter_assets/packages/crypto_font_icons/font/cryptofont-webfont.ttf</key>
 		<data>
@@ -132,6 +136,10 @@
 		<data>
 		ZZBP0NxLS0FpDnRGkYi6CqkYiuk=
 		</data>
+		<key>flutter_assets/packages/ionicons/fonts/Ionicons.ttf</key>
+		<data>
+		Bedq19VRXjLe7EHP8+c3qMuoaG4=
+		</data>
 		<key>flutter_assets/packages/sign_in_button/assets/logos/2.0x/facebook_new.png</key>
 		<data>
 		jk6zBcOP1+h6lmi0HshzEvcs0C0=
@@ -179,33 +187,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F9jx5dAuajGIyKw13nTpqAHZQEk=
+			+VaK1IK62gQ1fWRd2D6/VKO15b4=
 			</data>
 			<key>hash2</key>
 			<data>
-			XzMeUviA3o+Y8DCWVz927WKvvReJpcZXqvUszDWs5O4=
+			YwCsqVoJUme1+7LYur6fQ5fp5D1gfE2HXuoQ32ew+Tw=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9CDv1CcFYj82zvkjgHf1VlWn6h4=
+			b4cZYB1gCPBd6FHT6ck7Fbsq31I=
 			</data>
 			<key>hash2</key>
 			<data>
-			KlOThmim1We2HRuEchZZgbS8aElXWN8/b1TQN6OgVvc=
+			ABnBOjdpSpBdLtjAbyEB2cQTZBK8w3NSgrifwocccqE=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES.Z</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EqtRWIcJQiJCQdHD149qiUDF3q4=
+			ZfSsIKfT7a+D0/AC5YgFbmm2xJI=
 			</data>
 			<key>hash2</key>
 			<data>
-			pUbRurSNcz/7DAITee5kUxzPHLc3sg9bhBSFARiXzdw=
+			qUmaNs/9KcCXsuIutjdlgNJne3vxCYI5H+kBmyylps4=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/Background%20Image%20Top.png</key>
@@ -228,6 +236,17 @@
 			<key>hash2</key>
 			<data>
 			Ly3QaoLumbJcTXo2PmZxwXdLGBKNx+9l5FWo8THI64Q=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/QRCode.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NuhjbK7HN1so6f9s/PJmzcDnwvI=
+			</data>
+			<key>hash2</key>
+			<data>
+			8ouvmgS/P/D6lqGCFMNmAVeswjVGyxy4BpKibnlkZjY=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/logoBW.png</key>
@@ -355,11 +374,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N+oB+hLQOQHJn7Jyp2KqMKi7Aok=
+			XHGYRqpD8/6ojP3o++SvPPJiYuY=
 			</data>
 			<key>hash2</key>
 			<data>
-			cawMlrQevWif8n10cYgv77xG7/0IFrMZu6+kxOwljeg=
+			4RgjNAQjJto7S0a76FepJm2Tq5bpL/o9hTJpZYH9SEA=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/crypto_font_icons/font/cryptofont-webfont.ttf</key>
@@ -503,6 +522,17 @@
 			<key>hash2</key>
 			<data>
 			kBTU+CzwK0WehA3WAbgZLiyXARfdq0hH4bn+D8fa/Fg=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/ionicons/fonts/Ionicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Bedq19VRXjLe7EHP8+c3qMuoaG4=
+			</data>
+			<key>hash2</key>
+			<data>
+			oUb6nLTkGyC/oIT2O6Br4fueejcacX7M+YomvWYe4Ss=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/sign_in_button/assets/logos/2.0x/facebook_new.png</key>

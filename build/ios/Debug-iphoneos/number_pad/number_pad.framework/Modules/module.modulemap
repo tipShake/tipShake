@@ -1,0 +1,11 @@
+framework module number_pad {
+  umbrella header "number_pad-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module number_pad.Swift {
+    header "number_pad-Swift.h"
+    requires objc
+}
