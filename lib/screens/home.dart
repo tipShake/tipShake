@@ -1,32 +1,34 @@
-import 'package:app/widgets/modal_bottom_sheet.dart';
-import 'package:app/widgets/quickadd.dart';
-import 'package:app/widgets/scanqr.dart';
-import 'package:app/widgets/tiphistory.dart';
-import 'package:app/tipping/tipstart.dart';
-import 'package:app/strings.dart';
-import 'package:app/integers.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:app/widgets/scanner.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutterfire_ui/auth.dart';
+import 'package:app/screens/contacts.dart';
+import 'package:app/screens/history.dart';
+import 'package:app/screens/scanner.dart';
+import 'package:app/screens/settings.dart';
+import 'package:app/screens/tipping.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../widgets/balancecard.dart';
-import 'package:app/screens/basictip.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import '../misc/strings.dart';
+import '../widgets/tipavatar.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.user}) : super(key: key);
+class homeScreen extends StatefulWidget {
+  const homeScreen(
+      {Key? key,
+      required this.username,
+      required this.accountbalance,
+      required this.email,
+      required this.phonenumber,
+      required this.userpic})
+      : super(key: key);
 
-  final User user;
-
+  final String username;
+  final String accountbalance;
+  final String email;
+  final String phonenumber;
+  final String userpic;
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<homeScreen> createState() => _homeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,135 +43,706 @@ class _HomePageState extends State<HomePage> {
         ],
       )),
       child: Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 125,
-            //User Profile Picture
-            title: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                          'https://images.pexels.com/photos/3755708/pexels-photo-3755708.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-3755708.jpg&fm=jpg'),
-                    ),
-                    ShowQr(),
-                  ],
-                )
-              ],
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          //User Profile Picture
+          title: Text(
+            '!${widget.username}',
+            style: const TextStyle(
+              fontFamily: 'Acumin Pro',
+              fontSize: 14,
+              color: Color(0xff4d5858),
+              fontWeight: FontWeight.w700,
+              height: 1.4285714285714286,
             ),
+            textHeightBehavior:
+                const TextHeightBehavior(applyHeightToFirstAscent: false),
+            textAlign: TextAlign.center,
+            softWrap: false,
           ),
-          bottomNavigationBar: BottomAppBar(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => BasicTip()),
-                      );
-                    },
-                    child: Text(
-                      'TIP',
-                      style: GoogleFonts.poppins(
-                          color: const Color(0xffffffff),
-                          textStyle: Theme.of(context).textTheme.button),
-                    )),
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QrScanner()),
-                      );
-                    },
-                    color: Colors.white,
-                    icon: const Icon(Ionicons.scan_outline)),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Container(
-                                  decoration: const BoxDecoration(
-                                      gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: <Color>[
-                                      Color(0xffBFC4C7),
-                                      Color(0xffB7C9E2),
-                                      Color(0xffCAC2BA),
-                                    ],
-                                  )),
-                                  child: ProfileScreen(
-                                    actions: [
-                                      SignedOutAction((context) {
-                                        Navigator.pushReplacementNamed(
-                                            context, '/');
-                                      })
-                                    ],
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: ButtonBar(
+            alignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              //Contacts
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Contacts(),
+                      ));
+                },
+                child: SvgPicture.asset(Buttons.Contacts),
+              ),
+//Scan QR
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Scanner(),
+                      ));
+                },
+                child: SvgPicture.asset(Buttons.Scan),
+              ),
+//Home/Quick Tip
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BasicTip(),
+                      ));
+                },
+                onLongPress: () {
+                  setState(() {});
+                },
+                child: SvgPicture.asset(Buttons.Home),
+              ),
+//Show My QR
+              TextButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    elevation: 5,
+                    isDismissible: true,
+                    enableDrag: true,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 490,
+                        decoration: BoxDecoration(
+                          color: const Color(0xe54270b7),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25.0),
+                            topRight: Radius.circular(25.0),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+//User Data
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('No Name Given'),
+                                TipAvatar(userpic: widget.userpic),
+                                Text(widget.username),
+                              ],
+                            ),
+//Bottom Content
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  onPressed: (() {}),
+                                  icon: Icon(
+                                    Icons.download,
+                                    size: 50,
                                   ),
-                                )),
+                                ),
+                                QrImage(
+                                  data:
+                                      'This QR code has an embedded image as well',
+                                  version: QrVersions.auto,
+                                  size: 200,
+                                  gapless: false,
+                                  embeddedImage: AssetImage(
+                                      'assets/logos/tipshake_qr.png'),
+                                  embeddedImageStyle: QrEmbeddedImageStyle(
+                                    size: Size(50, 50),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.ios_share,
+                                    size: 50,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       );
                     },
-                    child: Text(
-                      'PROFILES',
-                      style: GoogleFonts.poppins(
-                          color: const Color(0xffffffff),
-                          textStyle: Theme.of(context).textTheme.button),
-                    )),
+                  );
+                },
+                child: SvgPicture.asset(Buttons.ShowQR),
+              ),
+//Settings/Profile
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsScreen(
+                          userpic: widget.userpic,
+                        ),
+                      ));
+                },
+                child: SvgPicture.asset(Buttons.Settings),
+              ),
+            ],
+          ),
+        ),
+        body: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+//NFT | User Avatar | History
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                //Create NFT
+                TextButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      const CircleBorder(),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      SvgPicture.asset(Buttons.CreateNFT),
+                      const Text(
+                        'create\nNFT',
+                        style: TextStyle(
+                          fontFamily: 'Acumin Pro',
+                          fontSize: 15,
+                          color: Color(0xffffffff),
+                          fontWeight: FontWeight.w700,
+                          height: 1.3333333333333333,
+                          shadows: [
+                            Shadow(
+                              color: Color(0x29000000),
+                              offset: Offset(0, 3),
+                              blurRadius: 6,
+                            ),
+                          ],
+                        ),
+                        textHeightBehavior:
+                            TextHeightBehavior(applyHeightToFirstAscent: false),
+                        textAlign: TextAlign.center,
+                        softWrap: false,
+                      ),
+                    ],
+                  ),
+                ), //User Avatar
+                //Avatar
+                TipAvatar(
+                  userpic: widget.userpic,
+                ),
+
+//History Button
+                Stack(
+                  alignment: Alignment.topRight,
+                  children: [
+                    IconButton(
+                      iconSize: 45,
+                      icon: const Icon(Icons.history),
+                      color: Colors.white,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => History(),
+                            ));
+                      },
+                    ),
+                    Container(
+                      height: 10,
+                      width: 10,
+                      decoration: const BoxDecoration(
+                        color: Color(0xffffffff),
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ),
-          body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            //Card Balance
-            const BalanceCard(),
-
-            //Tip History
+//Words of the Day?
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Text(
+                    'Still tippin’!',
+                    style: TextStyle(
+                      fontFamily: 'Acumin Pro',
+                      fontSize: 30,
+                      color: Color(0xffffffff),
+                      fontWeight: FontWeight.w700,
+                      height: 1,
+                      shadows: [
+                        Shadow(
+                          color: Color(0x29000000),
+                          offset: Offset(0, 3),
+                          blurRadius: 6,
+                        )
+                      ],
+                    ),
+                    textHeightBehavior:
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
+                    textAlign: TextAlign.center,
+                    softWrap: false,
+                  ),
+                ),
+              ],
+            ),
+//Quick Look Data
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
+              child: Container(
+                width: 345,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  border:
+                      Border.all(width: 2.0, color: const Color(0xffffffff)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Card(
+                    color: Colors.transparent,
+                    elevation: 0,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+//Crypto Amount + Select
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text.rich(
+                              TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Acumin Pro',
+                                  fontSize: 40,
+                                  color: Color(0xffffffff),
+                                  height: 1.6,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: widget.accountbalance,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 35),
+                                  ),
+                                  TextSpan(
+                                    text: 'XRP',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.center,
+                              softWrap: false,
+                            ),
+                            SizedBox(
+                              width: 23,
+                            ),
+                            Icon(
+                              Icons.add,
+                              size: 35,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+//XRP Logo
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              Logos.XRP,
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                        ),
+//Bottom Card Content
+//Market Value
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Market Value',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 15,
+                                color: Color(0xff1e4579),
+                                fontWeight: FontWeight.w300,
+                                height: 2.1333333333333333,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              '0.00%',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 15,
+                                color: Color(0xffe31414),
+                                fontWeight: FontWeight.w500,
+                                height: 2.1333333333333333,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                            Spacer(),
+                            Text(
+                              '\$0.000000',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 18,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w500,
+                                height: 1.7777777777777777,
+                                shadows: [
+                                  Shadow(
+                                    color: Color(0x29000000),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 4,
+                                  )
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.right,
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+
+//Total USD
+                        Row(
+                          children: const [
+                            Text.rich(
+                              TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Acumin Pro',
+                                  fontSize: 15,
+                                  color: Color(0xff1e4579),
+                                  height: 2.1333333333333333,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Total',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ' ',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'USD',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                            Spacer(),
+                            Text(
+                              '\$000.00',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 18,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w500,
+                                height: 1.7777777777777777,
+                                shadows: [
+                                  Shadow(
+                                    color: Color(0x29000000),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 4,
+                                  )
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.right,
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+
+//Amount Tipped Today
+                        Row(
+                          children: const [
+                            Text.rich(
+                              TextSpan(
+                                style: TextStyle(
+                                  fontFamily: 'Acumin Pro',
+                                  fontSize: 15,
+                                  color: Color(0xff1e4579),
+                                  height: 0.9333333333333333,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Amount tipped today',
+                                  ),
+                                  TextSpan(
+                                    text: ':   ',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                            Spacer(),
+                            Text(
+                              '\$000.00',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 18,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w500,
+                                height: 1.7777777777777777,
+                                shadows: [
+                                  Shadow(
+                                    color: Color(0x29000000),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 4,
+                                  )
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.right,
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+
+//Daily Limit
+                        Row(
+                          children: const [
+                            Text(
+                              'Daily limit',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 15,
+                                color: Color(0xff1e4579),
+                                height: 2.1333333333333333,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                            Spacer(),
+                            Text(
+                              '\$000',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 18,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w500,
+                                height: 1.7777777777777777,
+                                shadows: [
+                                  Shadow(
+                                    color: Color(0x29000000),
+                                    offset: Offset(0, 1),
+                                    blurRadius: 4,
+                                  )
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.right,
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+//TipShake Bill Button
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  Text(
-                    'Tip History',
-                    style: GoogleFonts.poppins(
-                        color: const Color(0xffffffff),
-                        textStyle: Theme.of(context).textTheme.headline6),
-                  )
+                  Container(
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: const Color(0x40ffffff),
+                      border: Border.all(
+                          width: 0.5, color: const Color(0xffffffff)),
+                    ),
+                  ),
+                  SvgPicture.asset(
+                    Bills.Silver,
+                    height: 100,
+                    width: 100,
+                  ),
                 ],
               ),
             ),
-
-            //TipCards Horizontal Swipe
-            const TipCard(),
-
-            const SizedBox(
-              height: 30,
+//Button Row - Change Tip + Change Swipe
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 160,
+                  height: 90,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        const Color(0xff4270b7),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        //XRP Icon
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              Logos.XRP,
+                              width: 35,
+                              height: 35,
+                            ),
+                          ],
+                        ),
+                        //Text 1
+                        Row(
+                          children: const [
+                            Text(
+                              'Daily tipping limit',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 14,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w700,
+                                height: 1.4285714285714286,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+                        //Text 2
+                        Row(
+                          children: const [
+                            Text(
+                              'Set your daily tipping limit',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 10,
+                                color: Color(0xffffffff),
+                                height: 1.4545454545454546,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //Change Swipe Amount
+                SizedBox(
+                  width: 192,
+                  height: 90,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(const Color(0xff4270b7))),
+                    onPressed: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        //XRP Icon
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              Buttons.SwipeAmount,
+                              width: 25,
+                              height: 25,
+                            )
+                          ],
+                        ),
+                        //Text 1
+                        Row(
+                          children: const [
+                            Text(
+                              'Change Swipe Amount',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 14,
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w700,
+                                height: 1.4285714285714286,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+                        //Text 2
+                        Row(
+                          children: const [
+                            Text(
+                              'Set your daily tipping limit',
+                              style: TextStyle(
+                                fontFamily: 'Acumin Pro',
+                                fontSize: 11,
+                                color: Color(0xffffffff),
+                                height: 1.4545454545454546,
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              softWrap: false,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            //How Much You Tip?
-            Text(
-              'How Much are you tipping today?',
-              style: GoogleFonts.poppins(
-                  color: const Color(0xff1E4579),
-                  textStyle: Theme.of(context).textTheme.headline6),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            //Tipping Amount
-            Text(
-              Numbers.moneyAdded.toString(),
-              style: GoogleFonts.poppins(
-                  color: const Color(0xff1E4579),
-                  textStyle: Theme.of(context).textTheme.headline2),
-            ),
-            const Spacer(),
-            //Quickly Add Money
-            const QuickAdd(),
-
-            const Spacer()
-          ])),
+          ],
+        ),
+      ),
     );
   }
 }
