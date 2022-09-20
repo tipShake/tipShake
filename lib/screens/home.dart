@@ -1112,7 +1112,8 @@ class _homeScreenState extends State<homeScreen> {
                                                       });
                                                     },
                                                     child: const Icon(
-                                                        Icons.circle,)),
+                                                      Icons.circle,
+                                                    )),
                                                 ElevatedButton(
                                                   style:
                                                       ElevatedButton.styleFrom(
@@ -1716,7 +1717,7 @@ class _homeScreenState extends State<homeScreen> {
                                                           side:
                                                               BorderSide.none),
                                                       primary: const Color(
-                                                          0xff1E4579),
+                                                          0xffdbd499),
                                                     ),
                                                     onPressed: () {
                                                       setState(() {
