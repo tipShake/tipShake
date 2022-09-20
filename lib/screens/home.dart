@@ -371,8 +371,8 @@ class _homeScreenState extends State<homeScreen> {
                           child: Center(
                             child: SvgPicture.asset(
                               Logos.XRP,
-                              height: 30,
-                              width: 30,
+                              height: 50,
+                              width: 50,
                             ),
                           ),
                         ),
@@ -1123,7 +1123,7 @@ class _homeScreenState extends State<homeScreen> {
                                                     shape: const CircleBorder(
                                                         side: BorderSide.none),
                                                     primary:
-                                                        const Color(0xffdbd499),
+                                                        const Color(0xff1E4579),
                                                   ),
                                                   onPressed: () {
                                                     setState(() {
