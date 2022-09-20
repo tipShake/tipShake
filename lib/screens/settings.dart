@@ -1,4 +1,5 @@
 import 'package:app/misc/strings.dart';
+import 'package:app/screens/security.dart';
 import 'package:app/widgets/tipavatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -72,7 +73,9 @@ class SettingsScreen extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Container(),
+                        builder: (context) => SecurityScreen(
+                          
+                        ),
                       ),
                     ),
                     leading: Icon(
