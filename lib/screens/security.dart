@@ -235,3 +235,83 @@ class _SecurityScreenState extends State<SecurityScreen> {
     );
   }
 }
+
+class ActivateWallet extends StatelessWidget {
+  const ActivateWallet({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+       decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: <Color>[
+          Color(0xffBFC4C7),
+          Color(0xffB7C9E2),
+          Color(0xffCAC2BA),
+        ],
+      ),),
+     
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            'Activate Wallet',
+            style: TextStyle(
+              fontFamily: 'Acumin Pro',
+              fontSize: 20,
+              color: const Color(0xffffffff),
+              fontWeight: FontWeight.w700,
+              height: 1,
+              shadows: [
+                Shadow(
+                  color: const Color(0x29000000),
+                  offset: Offset(0, 3),
+                  blurRadius: 6,
+                )
+              ],
+            ),
+            textHeightBehavior:
+                TextHeightBehavior(applyHeightToFirstAscent: false),
+            textAlign: TextAlign.center,
+            softWrap: false,
+          ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: double.infinity,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                fixedSize: const Size(330, 65),
+              ),
+              child: Text(
+                'Request New Paid Wallet',
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  color: Color(0xff4270b7),
+                  fontWeight: FontWeight.w500,
+                  height: 1,
+                ),
+                textHeightBehavior:
+                    const TextHeightBehavior(applyHeightToFirstAscent: false),
+                textAlign: TextAlign.center,
+                softWrap: false,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
