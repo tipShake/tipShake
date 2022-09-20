@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (iPhone 14 Pro Max)",
+            "program": "lib/main.dart",
+            "deviceId": "9795A6BB-AD6E-4D10-B2E0-C125A0DDAD93",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

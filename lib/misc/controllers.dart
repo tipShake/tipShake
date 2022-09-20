@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 final tipController = TextEditingController();
 
+final dailylimitController = TextEditingController();
+
 final fundingController = TextEditingController();
 
-//OnBoading Controllers
 final onboardController = PageController(initialPage: 0);
 
 final usrEmailController = TextEditingController();
