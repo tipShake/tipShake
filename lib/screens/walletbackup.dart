@@ -83,54 +83,87 @@ class _Wallet_BackupState extends State<Wallet_Backup> {
               ),
 //Show Random Security Words
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(
-                      'Write down or copy these words in the right order and save them somewhere safe.',
-                      style: TextStyle(
-                        fontFamily: 'Acumin Pro',
-                        fontSize: 19,
-                        color: const Color(0xff4d5858),
-                        letterSpacing: 0.076,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textAlign: TextAlign.center,
+                  Text(
+                    'Write down or copy these words in the right order and save them somewhere safe.',
+                    style: TextStyle(
+                      fontFamily: 'Acumin Pro',
+                      fontSize: 19,
+                      color: const Color(0xff4d5858),
+                      letterSpacing: 0.076,
+                      fontWeight: FontWeight.w700,
                     ),
+                    textAlign: TextAlign.center,
                   ),
 
 //Create Builder For Phrases
-                  Container(
-                    height: 50,
-                    width: 75,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                          width: 2.0, color: const Color(0xffffffff)),
-                    ),
-                    child: ListTile(
-                      leading: Text(
-                        '1',
-                        style: TextStyle(
-                          fontFamily: 'Acumin Pro',
-                          fontSize: 16,
-                          color: const Color(0xffffffff),
-                          fontWeight: FontWeight.w700,
-                          shadows: [
-                            Shadow(
-                              color: const Color(0x29000000),
-                              offset: Offset(0, 3),
-                              blurRadius: 4,
+
+                  Expanded(
+                    child: ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: passNumbers.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            height: 40,
+                            width: 75,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.0),
+                              border: Border.all(
+                                  width: 2.0, color: const Color(0xffffffff)),
                             ),
-                          ],
-                        ),
-                      ),
-                      title: Text('Random'),
+                            child: Row(
+                              children: [
+                                Text(passNumbers[index]),
+                                VerticalDivider(
+                                  thickness: 1,
+                                  color: Colors.white,
+                                ),
+                                Text(passPhrases[index]),
+                              ],
+                            ));
+                      },
                     ),
                   ),
                 ],
               ),
             ],
           )),
+    );
+  }
+}
+
+//Seperating the Phrases View
+class PassPhrasesSection extends StatelessWidget {
+  const PassPhrasesSection({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+                height: 40,
+                width: 75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  border:
+                      Border.all(width: 2.0, color: const Color(0xffffffff)),
+                ),
+                child: Row(
+                  children: [
+                    Text(passNumbers.first),
+                    VerticalDivider(
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                    Text(passPhrases.first),
+                  ],
+                )),
+          ],
+        ),
+      ],
     );
   }
 }

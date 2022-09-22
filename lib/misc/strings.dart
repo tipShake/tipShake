@@ -233,3 +233,35 @@ final RecentTips = [
   '93',
   '10',
 ];
+//Section for Backup YOur Wallet
+final passNumbers = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+];
+
+
+final passPhrases = [
+  'Cow',
+  'Dog',
+  'Sora',
+  'Riku',
+  'Roxas',
+  'Yuri',
+  'Mori',
+  'Mark',
+  'Lurk',
+  'Foam',
+  'Pop',
+  'Light',
+];
+
