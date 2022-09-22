@@ -125,6 +125,26 @@ class _Wallet_BackupState extends State<Wallet_Backup> {
                       },
                     ),
                   ),
+//Copy All
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15.0),
+                    child: TextButton(
+                      onPressed: () {
+                        ///TODO Add copying to phone pastboard;
+                      },
+                      child: Text(
+                        'Copy all',
+                        style: TextStyle(
+                          fontFamily: 'Acumin Pro',
+                          fontSize: 16,
+                          color: const Color(0xffffffff),
+                          letterSpacing: 0.064,
+                          fontWeight: FontWeight.w700,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
