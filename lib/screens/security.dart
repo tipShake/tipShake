@@ -1,4 +1,5 @@
 import 'package:app/misc/strings.dart';
+import 'package:app/screens/walletbackup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -129,7 +130,12 @@ class _SecurityScreenState extends State<SecurityScreen> {
             ),
 //Backup Wallet
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Wallet_Backup(),
+                ),
+              ),
               title: Text(
                 'Backup your Wallet',
                 style: TextStyle(
@@ -242,17 +248,17 @@ class ActivateWallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: <Color>[
-          Color(0xffBFC4C7),
-          Color(0xffB7C9E2),
-          Color(0xffCAC2BA),
-        ],
-      ),),
-     
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Color(0xffBFC4C7),
+            Color(0xffB7C9E2),
+            Color(0xffCAC2BA),
+          ],
+        ),
+      ),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,

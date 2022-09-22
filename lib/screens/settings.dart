@@ -73,9 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SecurityScreen(
-                          
-                        ),
+                        builder: (context) => SecurityScreen(),
                       ),
                     ),
                     leading: Icon(
@@ -374,7 +372,7 @@ class SettingsScreen extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Container(),
+                        builder: (context) => EducationScreen(),
                       ),
                     ),
                     leading: Icon(
@@ -425,6 +423,104 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
       )),
+    );
+  }
+}
+
+class EducationScreen extends StatefulWidget {
+  const EducationScreen({Key? key}) : super(key: key);
+
+  @override
+  State<EducationScreen> createState() => _EducationScreenState();
+}
+
+class _EducationScreenState extends State<EducationScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Color(0xffBFC4C7),
+            Color(0xffB7C9E2),
+            Color(0xffCAC2BA),
+          ],
+        ),
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: ListTile(
+            leading: SvgPicture.asset(Buttons.Education),
+            title: Text(
+              'Education',
+              style: TextStyle(
+                fontFamily: 'Acumin Pro',
+                fontSize: 20,
+                color: const Color(0xffffffff),
+                fontWeight: FontWeight.w700,
+                shadows: [
+                  Shadow(
+                    color: const Color(0x29000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 6,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        body: Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+            ),
+//Education Pagination
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Education Pagination',
+                style: TextStyle(
+                  fontFamily: 'Acumin Pro',
+                  fontSize: 16,
+                  color: const Color(0xffffffff),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+//FAQ
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'FAQ',
+                style: TextStyle(
+                  fontFamily: 'Acumin Pro',
+                  fontSize: 16,
+                  color: const Color(0xffffffff),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+//LEGAL
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Legal',
+                style: TextStyle(
+                  fontFamily: 'Acumin Pro',
+                  fontSize: 16,
+                  color: const Color(0xffffffff),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

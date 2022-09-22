@@ -18,6 +18,8 @@ class Buttons {
   static const CreateNFT = 'assets/buttons/createnftbtn.svg';
   //Change Swipe AMount
   static const SwipeAmount = 'assets/buttons/swipeamountbtn.svg';
+  //Education Button
+  static const Education = 'assets/buttons/educationbtn.svg';
 }
 
 class Bills {
