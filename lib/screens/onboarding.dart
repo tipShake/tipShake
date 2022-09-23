@@ -1035,6 +1035,12 @@ class _onboardScreenState extends State<onboardScreen> {
                                   phonenumber: usrNumberController.text,
                                   userpic: image!.path,
                                   pickedbill: selectedbill,
+                                  dailylimit: '0',
+                                  marketvalue: '0',
+                                  marketvaluechange: '0',
+                                  tippedtoday: '0',
+                                  totalusd: '0',
+                                  tiplimit: '0',
                                 ),
                               ),
                             );

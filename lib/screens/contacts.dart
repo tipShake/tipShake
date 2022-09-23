@@ -118,7 +118,8 @@ class _ContactsState extends State<Contacts> {
                   '!${TipIds[index]}',
                 ),
                 //TS Icon
-                trailing: SvgPicture.asset(Strings.tipIcon),
+                ///TODO Fix keeps turing white!
+                trailing: SvgPicture.asset(Buttons.Tip),
               ),
             );
           },

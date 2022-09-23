@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		X6zGDSW6yJ9pxeolinwQS3zh4qU=
+		oIcdOhukt6ILqHYMPMXzOoOHZF4=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -51,6 +51,10 @@
 		<key>flutter_assets/assets/buttons/coinbtn.svg</key>
 		<data>
 		vZ1/ZJk4U1gjoH5rfqwQkeVcH2o=
+		</data>
+		<key>flutter_assets/assets/buttons/contacttipbtn.svg</key>
+		<data>
+		hIHUJo1tziVq3CYnsmf9yOQtkuU=
 		</data>
 		<key>flutter_assets/assets/buttons/contatcsbtn.svg</key>
 		<data>
@@ -108,6 +112,10 @@
 		<data>
 		/BkP7gjhbGiD8HZcks72FVZ6qb0=
 		</data>
+		<key>flutter_assets/assets/images/rightangle.svg</key>
+		<data>
+		5jc+lXLK4PTl8R8oMWKYkbjOBc0=
+		</data>
 		<key>flutter_assets/assets/logos/tipshake_qr.png</key>
 		<data>
 		N+STaBW63P/674ybWoi/TdTPLA4=
@@ -124,6 +132,10 @@
 		<data>
 		RK/u8fpjCpnDjj65tSaHwLPSgkw=
 		</data>
+		<key>flutter_assets/assets/logos/tipshaketip.svg</key>
+		<data>
+		G7yjNI4ZLdbkPcBcmOeyMiNN6e8=
+		</data>
 		<key>flutter_assets/assets/logos/xrplogo.svg</key>
 		<data>
 		Mpi4/TSyugkc2C5Pq42B7Oq87zo=
@@ -138,7 +150,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		pkCVVHTEt6v0JlZSbgVYWwt7o7g=
+		dBclaoYqzxg6wjnddE5WTD8ZB10=
 		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -151,11 +163,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X6zGDSW6yJ9pxeolinwQS3zh4qU=
+			oIcdOhukt6ILqHYMPMXzOoOHZF4=
 			</data>
 			<key>hash2</key>
 			<data>
-			jFjE1JhNY8qXzEK0G4rkRhS49UzD9toTgibFpU/DfJ8=
+			okDxcKNbuNkuyIf/An5fSPinb5vfGLeTWG9/r1Rtki4=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -244,6 +256,17 @@
 			<key>hash2</key>
 			<data>
 			Un4HNUhEecCqBUY++QqszbH6soaC0zvppVAjlztzXqc=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/buttons/contacttipbtn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hIHUJo1tziVq3CYnsmf9yOQtkuU=
+			</data>
+			<key>hash2</key>
+			<data>
+			OPqTPO7yuN1xE4sIeDuwnBRZEt3+F1fYD98N495cVrE=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/buttons/contatcsbtn.svg</key>
@@ -389,6 +412,17 @@
 			SWsmT4chjNshqseU5apoN5fjaYxP95mbBHrEhEBt3Ac=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/rightangle.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5jc+lXLK4PTl8R8oMWKYkbjOBc0=
+			</data>
+			<key>hash2</key>
+			<data>
+			088Bhho1U97Vfi8HzWGIuICTB+NS4Sn/jtXt+xdwFew=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/logos/tipshake_qr.png</key>
 		<dict>
 			<key>hash</key>
@@ -433,6 +467,17 @@
 			NOwk/i1M5DNNxX7T3KR+/HLxu0TLe6qDgBcdsG3K7Gc=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/logos/tipshaketip.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			G7yjNI4ZLdbkPcBcmOeyMiNN6e8=
+			</data>
+			<key>hash2</key>
+			<data>
+			YaJD2lF3wkHaPJb8Cn1a0ZiHMzRG/4CiyqTlWGJIUiU=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/logos/xrplogo.svg</key>
 		<dict>
 			<key>hash</key>
@@ -470,11 +515,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pkCVVHTEt6v0JlZSbgVYWwt7o7g=
+			dBclaoYqzxg6wjnddE5WTD8ZB10=
 			</data>
 			<key>hash2</key>
 			<data>
-			fpPVWyHeme/3T6bN0sVF5qCNATsZZGYI4LtNT9gns+Y=
+			pDnA+2xUJxa9LD/+eFfjONNcfxJg6IhMaP4XT/dkN1w=
 			</data>
 		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>

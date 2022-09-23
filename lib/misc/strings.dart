@@ -1,6 +1,6 @@
 class Shapes {
   //Right Angle
-  static const rightAngle = 'assets/icons/svg/rightangle.svg';
+  static const rightAngle = 'assets/images/rightangle.svg';
 }
 
 class Buttons {
@@ -29,12 +29,9 @@ class Buttons {
   //Change Currency Button
   static const Currency = 'assets/buttons/¥btn.svg';
   //Change Language Button
-    static const Language = 'assets/buttons/languagebtn.svg';
-
-
-  
-
-
+  static const Language = 'assets/buttons/languagebtn.svg';
+  //Contacts Tip Button
+  static const Tip = 'assets/buttons/contacttipbtn.svg';
 }
 
 class Bills {
@@ -99,7 +96,7 @@ class Strings {
   static const editIcon = 'assets/icons/svg/editicon.svg';
 
 //Tipshake Icon for InteractiveTip
-  static const t$Big = 'assets/icons/svg/white t\$ logo upper.svg';
+  static const t$Big = 'assets/logos/tipshaketip.svg';
 
 //Books Icon
   static const booksIcon = 'assets/icons/svg/booksicon.svg';
@@ -264,7 +261,6 @@ final passNumbers = [
   '12',
 ];
 
-
 final passPhrases = [
   'Cow',
   'Dog',
@@ -279,4 +275,3 @@ final passPhrases = [
   'Pop',
   'Light',
 ];
-

@@ -16,6 +16,6 @@ void main() async {
         email: 'lilghostdancer@gmail.com',
         phonenumber: '240-625-8214',
         userpic: 'assets/logos/tipshake_qr.png',
-        pickedbill: Bills.Purple),
+        pickedbill: Bills.Purple, dailylimit: '0', marketvalue: '0', marketvaluechange: '0', tippedtoday: '0', totalusd: '0', tiplimit: '0',),
   ));
 }

@@ -18,7 +18,13 @@ class homeScreen extends StatefulWidget {
       required this.email,
       required this.phonenumber,
       required this.userpic,
-      required this.pickedbill})
+      required this.pickedbill,
+      required this.dailylimit,
+      required this.tippedtoday,
+      required this.totalusd,
+      required this.marketvalue,
+      required this.marketvaluechange,
+      required this.tiplimit})
       : super(key: key);
 
   final String username;
@@ -27,7 +33,13 @@ class homeScreen extends StatefulWidget {
   final String phonenumber;
   final String userpic;
   final String pickedbill;
-  final double dailylimit = 0;
+  final String dailylimit;
+  final String tippedtoday;
+  final String totalusd;
+  final String marketvalue;
+  final String marketvaluechange;
+  final String tiplimit;
+
   @override
   State<homeScreen> createState() => _homeScreenState();
 }
@@ -35,6 +47,7 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
+    dailylimitController.text = widget.dailylimit;
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -295,28 +308,25 @@ class _homeScreenState extends State<homeScreen> {
             SizedBox(
               height: 60,
             ),
-
 //Words of the Day?
             Text(
-              'Still tippin’!',
+              'Random Word Of The Day',
               style: TextStyle(
                 fontFamily: 'Acumin Pro',
                 fontSize: 30,
                 color: Color(0xffffffff),
                 fontWeight: FontWeight.w700,
-                height: 1,
                 shadows: [
                   Shadow(
                     color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
-                  )
+                  ),
                 ],
               ),
-              textHeightBehavior:
-                  TextHeightBehavior(applyHeightToFirstAscent: false),
-              textAlign: TextAlign.center,
-              softWrap: false,
+            ),
+            SizedBox(
+              height: 20,
             ),
 //Quick Look Data
             Container(
@@ -391,7 +401,7 @@ class _homeScreenState extends State<homeScreen> {
 //Market Value
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             'Market Value',
                             style: TextStyle(
@@ -408,8 +418,10 @@ class _homeScreenState extends State<homeScreen> {
                           SizedBox(
                             width: 10,
                           ),
+
+                          ///Market Value Change
                           Text(
-                            '0.00%',
+                            '${widget.marketvaluechange}%',
                             style: TextStyle(
                               fontFamily: 'Acumin Pro',
                               fontSize: 15,
@@ -421,9 +433,12 @@ class _homeScreenState extends State<homeScreen> {
                                 applyHeightToFirstAscent: false),
                             softWrap: false,
                           ),
+
                           Spacer(),
+
+                          ///Market Value
                           Text(
-                            '\$0.000000',
+                            '\$${widget.marketvalue}',
                             style: TextStyle(
                               fontFamily: 'Acumin Pro',
                               fontSize: 18,
@@ -445,10 +460,9 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                         ],
                       ),
-
 //Total USD
                       Row(
-                        children: const [
+                        children: [
                           Text.rich(
                             TextSpan(
                               style: TextStyle(
@@ -484,7 +498,7 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                           Spacer(),
                           Text(
-                            '\$000.00',
+                            '\$${widget.totalusd}',
                             style: TextStyle(
                               fontFamily: 'Acumin Pro',
                               fontSize: 18,
@@ -506,10 +520,9 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                         ],
                       ),
-
 //Amount Tipped Today
                       Row(
-                        children: const [
+                        children: [
                           Text.rich(
                             TextSpan(
                               style: TextStyle(
@@ -536,7 +549,7 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                           Spacer(),
                           Text(
-                            '\$000.00',
+                            '\$${widget.tippedtoday}',
                             style: TextStyle(
                               fontFamily: 'Acumin Pro',
                               fontSize: 18,
@@ -558,10 +571,9 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                         ],
                       ),
-
 //Daily Limit
                       Row(
-                        children: const [
+                        children: [
                           Text(
                             'Daily limit',
                             style: TextStyle(
@@ -576,7 +588,7 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                           Spacer(),
                           Text(
-                            '\$000',
+                            '\$${widget.dailylimit}',
                             style: TextStyle(
                               fontFamily: 'Acumin Pro',
                               fontSize: 18,
@@ -629,6 +641,7 @@ class _homeScreenState extends State<homeScreen> {
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
+//Change Daily Tipping Limit
                 SizedBox(
                   width: 160,
                   height: 90,
@@ -644,540 +657,581 @@ class _homeScreenState extends State<homeScreen> {
                                 BorderRadius.all(Radius.circular(25))),
                         context: context,
                         builder: (BuildContext context) {
-                          return SizedBox(
-                            height: 730,
-                            child: Scaffold(
-                              floatingActionButton: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      'UPDATE',
-                                      style: TextStyle(
-                                        fontFamily: 'Acumin Pro',
-                                        fontSize: 16,
-                                        color: const Color(0xffffffff),
-                                        fontWeight: FontWeight.w700,
-                                        height: 1.25,
-                                      ),
-                                      textHeightBehavior: TextHeightBehavior(
-                                          applyHeightToFirstAscent: false),
-                                      textAlign: TextAlign.center,
-                                      softWrap: false,
-                                    ),
-                                    height: 50,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xff4270b7),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(31.0),
-                                        topRight: Radius.circular(31.0),
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x29000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 6,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              body: Column(
-                                children: [
-                                  //Setting Your Daily Tipping Limit
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          Logos.XRP,
-                                          color: Colors.black38,
-                                          width: 30,
-                                          height: 30,
-                                        ),
-                                        Text(
-                                          'Set your daily tipping limit',
-                                          style: TextStyle(
-                                            fontFamily: 'Acumin Pro',
-                                            fontSize: 20,
-                                            color: const Color(0xff1e4579),
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.6,
-                                          ),
-                                          textHeightBehavior:
-                                              TextHeightBehavior(
-                                                  applyHeightToFirstAscent:
-                                                      false),
-                                          textAlign: TextAlign.center,
-                                          softWrap: false,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  //Current Limit
-                                  Divider(
-                                    color: Colors.blue,
-                                    thickness: .7,
-                                    indent: 100,
-                                    endIndent: 100,
-                                  ),
-
-                                  Text(
-                                    'CURRENT LIMIT: \$${widget.dailylimit} USD',
-                                    style: TextStyle(
-                                      fontFamily: 'Acumin Pro',
-                                      fontSize: 14,
-                                      color: const Color(0xff4270b7),
-                                      height: 1.1428571428571428,
-                                    ),
-                                    textHeightBehavior: TextHeightBehavior(
-                                        applyHeightToFirstAscent: false),
-                                    textAlign: TextAlign.center,
-                                    softWrap: false,
-                                  ),
-                                  //XRP Balance
-                                  Text(
-                                    "${widget.accountbalance} XRP",
-                                    style: TextStyle(
-                                      fontFamily: 'Acumin Pro',
-                                      fontSize: 14,
-                                      color: const Color(0xff4270b7),
-                                      height: 1.1428571428571428,
-                                    ),
-                                    textHeightBehavior: TextHeightBehavior(
-                                        applyHeightToFirstAscent: false),
-                                    textAlign: TextAlign.center,
-                                    softWrap: false,
-                                  ),
-                                  Divider(
-                                    color: Colors.blue,
-                                    thickness: .7,
-                                    indent: 100,
-                                    endIndent: 100,
-                                  ),
-                                  //Bottom Content Keypad
-                                  Column(
+                          return StatefulBuilder(
+                            builder:
+                                (BuildContext context, StateSetter setState) {
+                              return SizedBox(
+                                height: 730,
+                                child: Scaffold(
+                                  body: Column(
                                     children: [
-                                      Text.rich(
-                                        TextSpan(
-                                          style: TextStyle(
-                                            fontFamily: 'Acumin Pro',
-                                            fontSize: 83,
-                                            color: const Color(0xff1e4579),
-                                            height: 1.6024096385542168,
-                                          ),
+//Setting Your Daily Tipping Limit
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
-                                            TextSpan(
-                                              text: '\$',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                              ),
+                                            SvgPicture.asset(
+                                              Logos.XRP,
+                                              color: Colors.black38,
+                                              width: 30,
+                                              height: 30,
                                             ),
-                                            TextSpan(
-                                              text: dailylimitController.text,
+                                            Text(
+                                              'Set your daily tipping limit',
                                               style: TextStyle(
-                                                fontWeight: FontWeight.w500,
+                                                fontFamily: 'Acumin Pro',
+                                                fontSize: 20,
+                                                color: const Color(0xff1e4579),
+                                                fontWeight: FontWeight.w700,
+                                                height: 1.6,
                                               ),
+                                              textHeightBehavior:
+                                                  TextHeightBehavior(
+                                                      applyHeightToFirstAscent:
+                                                          false),
+                                              textAlign: TextAlign.center,
+                                              softWrap: false,
                                             ),
                                           ],
                                         ),
+                                      ),
+//Current Limit
+                                      Divider(
+                                        color: Colors.blue,
+                                        thickness: .7,
+                                        indent: 100,
+                                        endIndent: 100,
+                                      ),
+                                      Text(
+                                        'CURRENT LIMIT: \$${widget.dailylimit} USD',
+                                        style: TextStyle(
+                                          fontFamily: 'Acumin Pro',
+                                          fontSize: 14,
+                                          color: const Color(0xff4270b7),
+                                          height: 1.1428571428571428,
+                                        ),
                                         textHeightBehavior: TextHeightBehavior(
                                             applyHeightToFirstAscent: false),
+                                        textAlign: TextAlign.center,
                                         softWrap: false,
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
+//XRP Balance
+                                      Text(
+                                        "${widget.accountbalance} XRP",
+                                        style: TextStyle(
+                                          fontFamily: 'Acumin Pro',
+                                          fontSize: 14,
+                                          color: const Color(0xff4270b7),
+                                          height: 1.1428571428571428,
+                                        ),
+                                        textHeightBehavior: TextHeightBehavior(
+                                            applyHeightToFirstAscent: false),
+                                        textAlign: TextAlign.center,
+                                        softWrap: false,
+                                      ),
+                                      Divider(
+                                        color: Colors.blue,
+                                        thickness: .7,
+                                        indent: 100,
+                                        endIndent: 100,
+                                      ),
+//Bottom Content Keypad
+                                      Column(
                                         children: [
-                                          Text(
-                                            '0000 XRP',
-                                            style: TextStyle(
-                                              fontFamily: 'Acumin Pro',
-                                              fontSize: 14,
-                                              color: const Color(0xff4270b7),
-                                              height: 2.2857142857142856,
+                                          Text.rich(
+                                            TextSpan(
+                                              style: TextStyle(
+                                                fontFamily: 'Acumin Pro',
+                                                fontSize: 83,
+                                                color: const Color(0xff1e4579),
+                                                height: 1.6024096385542168,
+                                              ),
+                                              children: [
+                                                TextSpan(
+                                                  text: '\$',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text:
+                                                      dailylimitController.text,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                             textHeightBehavior:
                                                 TextHeightBehavior(
                                                     applyHeightToFirstAscent:
                                                         false),
-                                            textAlign: TextAlign.right,
                                             softWrap: false,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                '${widget.accountbalance}XRP',
+                                                style: TextStyle(
+                                                  fontFamily: 'Acumin Pro',
+                                                  fontSize: 14,
+                                                  color:
+                                                      const Color(0xff4270b7),
+                                                  height: 2.2857142857142856,
+                                                ),
+                                                textHeightBehavior:
+                                                    TextHeightBehavior(
+                                                        applyHeightToFirstAscent:
+                                                            false),
+                                                textAlign: TextAlign.right,
+                                                softWrap: false,
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                //123
+                                                ButtonBar(
+                                                  alignment: MainAxisAlignment
+                                                      .spaceEvenly,
+                                                  children: [
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '1';
+                                                        });
+                                                      },
+                                                      child: const Text(
+                                                        '1',
+                                                        style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '2';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '2',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '3';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '3',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                //456
+                                                ButtonBar(
+                                                  alignment: MainAxisAlignment
+                                                      .spaceEvenly,
+                                                  children: [
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '4';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '4',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '5';
+                                                        });
+                                                      },
+                                                      child: const Text(
+                                                        '5',
+                                                        style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '6';
+                                                        });
+                                                      },
+                                                      child: const Text(
+                                                        '6',
+                                                        style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                //789
+                                                ButtonBar(
+                                                  alignment: MainAxisAlignment
+                                                      .spaceEvenly,
+                                                  children: [
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '7';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '7',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '8';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '8',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '9';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '9',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                //0
+                                                ButtonBar(
+                                                  alignment: MainAxisAlignment
+                                                      .spaceEvenly,
+                                                  children: [
+                                                    ElevatedButton(
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                          fixedSize: const Size
+                                                              .fromRadius(35),
+                                                          shape:
+                                                              const CircleBorder(
+                                                                  side:
+                                                                      BorderSide
+                                                                          .none),
+                                                          primary: const Color(
+                                                              0xff1E4579),
+                                                        ),
+                                                        onPressed: () {
+                                                          setState(() {
+                                                            dailylimitController
+                                                                .text += '.';
+                                                          });
+                                                        },
+                                                        onLongPress: () {
+                                                          setState(() {
+                                                            dailylimitController
+                                                                .clear();
+                                                          });
+                                                        },
+                                                        child: const Icon(
+                                                          Icons.circle,
+                                                        )),
+                                                    ElevatedButton(
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        fixedSize: const Size
+                                                            .fromRadius(35),
+                                                        shape:
+                                                            const CircleBorder(
+                                                                side: BorderSide
+                                                                    .none),
+                                                        primary: const Color(
+                                                            0xff1E4579),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          dailylimitController
+                                                              .text += '0';
+                                                        });
+                                                      },
+                                                      child: Text(
+                                                        '0',
+                                                        style: const TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 48,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          height: 1.1875,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                        style: ElevatedButton
+                                                            .styleFrom(
+                                                          fixedSize: const Size
+                                                              .fromRadius(40),
+                                                          shape:
+                                                              const CircleBorder(
+                                                                  side:
+                                                                      BorderSide
+                                                                          .none),
+                                                          primary: Colors.red,
+                                                        ),
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Text('cancel')),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            //123
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '1';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '1',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '2';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '2',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '3';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '3',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+//Update Button
+                                      Container(
+                                        child: Center(
+                                          child: TextButton(
+                                            onPressed: () {
+                                              setState() {
+                                               
+                                              }
+
+                                              print(widget.dailylimit);
+
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'UPDATE',
+                                              style: TextStyle(
+                                                fontFamily: 'Acumin Pro',
+                                                fontSize: 16,
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w700,
+                                              ),
                                             ),
-                                            //456
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '4';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '4',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '5';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '5',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '6';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '6',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            //789
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '7';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '7',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '8';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '8',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '9';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '9',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            //0
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      fixedSize:
-                                                          const Size.fromRadius(
-                                                              35),
-                                                      shape: const CircleBorder(
-                                                          side:
-                                                              BorderSide.none),
-                                                      primary: const Color(
-                                                          0xff1E4579),
-                                                    ),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        dailylimitController
-                                                            .text += '.';
-                                                      });
-                                                    },
-                                                    child: const Icon(
-                                                      Icons.circle,
-                                                    )),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xff1E4579),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '0';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '0',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      fixedSize:
-                                                          const Size.fromRadius(
-                                                              40),
-                                                      shape: const CircleBorder(
-                                                          side:
-                                                              BorderSide.none),
-                                                      primary: Colors.red,
-                                                    ),
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text('cancel')),
-                                              ],
+                                          ),
+                                        ),
+                                        height: 50,
+                                        width: 90,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xff4270b7),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(31.0),
+                                            topRight: Radius.circular(31.0),
+                                          ),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: const Color(0x29000000),
+                                              offset: Offset(0, 3),
+                                              blurRadius: 6,
                                             ),
                                           ],
                                         ),
                                       ),
                                     ],
-                                  )
-                                ],
-                              ),
-                            ),
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
                       );
@@ -1248,557 +1302,12 @@ class _homeScreenState extends State<homeScreen> {
                         backgroundColor:
                             MaterialStateProperty.all(const Color(0xff4270b7))),
                     onPressed: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        elevation: 5,
-                        isDismissible: true,
-                        enableDrag: true,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(25))),
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                            height: 730,
-                            child: Scaffold(
-                              floatingActionButton: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      'UPDATE',
-                                      style: TextStyle(
-                                        fontFamily: 'Acumin Pro',
-                                        fontSize: 16,
-                                        color: const Color(0xffffffff),
-                                        fontWeight: FontWeight.w700,
-                                        height: 1.25,
-                                      ),
-                                      textHeightBehavior: TextHeightBehavior(
-                                          applyHeightToFirstAscent: false),
-                                      textAlign: TextAlign.center,
-                                      softWrap: false,
-                                    ),
-                                    height: 50,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xff4270b7),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(31.0),
-                                        topRight: Radius.circular(31.0),
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x29000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 6,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              body: Column(
-                                children: [
-//Setting Your Daily Tipping Limit
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          Buttons.SwipeAmount,
-                                          color: Colors.black38,
-                                          width: 30,
-                                          height: 30,
-                                        ),
-                                        Text(
-                                          'Set your default swipe amount',
-                                          style: TextStyle(
-                                            fontFamily: 'Acumin Pro',
-                                            fontSize: 20,
-                                            color: const Color(0xff1e4579),
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.6,
-                                          ),
-                                          textHeightBehavior:
-                                              TextHeightBehavior(
-                                                  applyHeightToFirstAscent:
-                                                      false),
-                                          textAlign: TextAlign.center,
-                                          softWrap: false,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  //Current Limit
-                                  Divider(
-                                    color: Colors.blue,
-                                    thickness: .7,
-                                    indent: 100,
-                                    endIndent: 100,
-                                  ),
-
-                                  Text(
-                                    'CURRENT LIMIT: \$${widget.dailylimit} USD',
-                                    style: TextStyle(
-                                      fontFamily: 'Acumin Pro',
-                                      fontSize: 14,
-                                      color: const Color(0xff4270b7),
-                                      height: 1.1428571428571428,
-                                    ),
-                                    textHeightBehavior: TextHeightBehavior(
-                                        applyHeightToFirstAscent: false),
-                                    textAlign: TextAlign.center,
-                                    softWrap: false,
-                                  ),
-//XRP Balance
-                                  Text(
-                                    "${widget.accountbalance} XRP",
-                                    style: TextStyle(
-                                      fontFamily: 'Acumin Pro',
-                                      fontSize: 14,
-                                      color: const Color(0xff4270b7),
-                                      height: 1.1428571428571428,
-                                    ),
-                                    textHeightBehavior: TextHeightBehavior(
-                                        applyHeightToFirstAscent: false),
-                                    textAlign: TextAlign.center,
-                                    softWrap: false,
-                                  ),
-                                  Divider(
-                                    color: Colors.blue,
-                                    thickness: .7,
-                                    indent: 100,
-                                    endIndent: 100,
-                                  ),
-                                  //Bottom Content Keypad
-                                  Column(
-                                    children: [
-                                      Text.rich(
-                                        TextSpan(
-                                          style: TextStyle(
-                                            fontFamily: 'Acumin Pro',
-                                            fontSize: 83,
-                                            color: const Color(0xff1e4579),
-                                            height: 1.6024096385542168,
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text: '\$',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: dailylimitController.text,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        textHeightBehavior: TextHeightBehavior(
-                                            applyHeightToFirstAscent: false),
-                                        softWrap: false,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            '0000 XRP',
-                                            style: TextStyle(
-                                              fontFamily: 'Acumin Pro',
-                                              fontSize: 14,
-                                              color: const Color(0xff4270b7),
-                                              height: 2.2857142857142856,
-                                            ),
-                                            textHeightBehavior:
-                                                TextHeightBehavior(
-                                                    applyHeightToFirstAscent:
-                                                        false),
-                                            textAlign: TextAlign.right,
-                                            softWrap: false,
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-//123
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '1';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '1',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '2';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '2',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '3';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '3',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            //456
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '4';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '4',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '5';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '5',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '6';
-                                                    });
-                                                  },
-                                                  child: const Text(
-                                                    '6',
-                                                    style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            //789
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '7';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '7',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '8';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '8',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '9';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '9',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            //0
-                                            ButtonBar(
-                                              alignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                ElevatedButton(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      fixedSize:
-                                                          const Size.fromRadius(
-                                                              35),
-                                                      shape: const CircleBorder(
-                                                          side:
-                                                              BorderSide.none),
-                                                      primary: const Color(
-                                                          0xffdbd499),
-                                                    ),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        dailylimitController
-                                                            .text += '.';
-                                                      });
-                                                    },
-                                                    child: const Icon(
-                                                        Icons.circle)),
-                                                ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    fixedSize:
-                                                        const Size.fromRadius(
-                                                            35),
-                                                    shape: const CircleBorder(
-                                                        side: BorderSide.none),
-                                                    primary:
-                                                        const Color(0xffdbd499),
-                                                  ),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      dailylimitController
-                                                          .text += '0';
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    '0',
-                                                    style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 48,
-                                                      color: Color(0xffffffff),
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      height: 1.1875,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      fixedSize:
-                                                          const Size.fromRadius(
-                                                              40),
-                                                      shape: const CircleBorder(
-                                                          side:
-                                                              BorderSide.none),
-                                                      primary: Colors.red,
-                                                    ),
-                                                    onPressed: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text('cancel')),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      );
+                      SwipeAmountKeyPad(context);
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        //XRP Icon
+//Swipe Amount Button Icon
                         Row(
                           children: [
                             SvgPicture.asset(
@@ -1808,7 +1317,7 @@ class _homeScreenState extends State<homeScreen> {
                             )
                           ],
                         ),
-                        //Text 1
+//Swipe Amount Button Title
                         Row(
                           children: const [
                             Text(
@@ -1826,14 +1335,14 @@ class _homeScreenState extends State<homeScreen> {
                             ),
                           ],
                         ),
-                        //Text 2
+//Swipe Amount Button SubTitle
                         Row(
                           children: const [
                             Text(
-                              'Set your daily tipping limit',
+                              'Select your default tip amount',
                               style: TextStyle(
                                 fontFamily: 'Acumin Pro',
-                                fontSize: 11,
+                                fontSize: 10,
                                 color: Color(0xffffffff),
                                 height: 1.4545454545454546,
                               ),
@@ -1852,6 +1361,482 @@ class _homeScreenState extends State<homeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  SwipeAmountKeyPad(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      elevation: 5,
+      isDismissible: true,
+      enableDrag: true,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(25))),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext contex, StateSetter setState) {
+          return SizedBox(
+            height: 730,
+            child: Scaffold(
+              body: Column(
+                children: [
+//Setting Your Swipe Amount
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          Buttons.SwipeAmount,
+                          color: Colors.black38,
+                          width: 30,
+                          height: 30,
+                        ),
+                        Text(
+                          'Set your default swipe amount',
+                          style: TextStyle(
+                            fontFamily: 'Acumin Pro',
+                            fontSize: 20,
+                            color: const Color(0xff1e4579),
+                            fontWeight: FontWeight.w700,
+                            height: 1.6,
+                          ),
+                          textHeightBehavior: TextHeightBehavior(
+                              applyHeightToFirstAscent: false),
+                          textAlign: TextAlign.center,
+                          softWrap: false,
+                        ),
+                      ],
+                    ),
+                  ),
+//Current Limit
+                  Divider(
+                    color: Colors.blue,
+                    thickness: .7,
+                    indent: 100,
+                    endIndent: 100,
+                  ),
+                  Text(
+                    'CURRENT LIMIT: \$${widget.tiplimit} USD',
+                    style: TextStyle(
+                      fontFamily: 'Acumin Pro',
+                      fontSize: 14,
+                      color: const Color(0xff4270b7),
+                      height: 1.1428571428571428,
+                    ),
+                    textHeightBehavior:
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
+                    textAlign: TextAlign.center,
+                    softWrap: false,
+                  ),
+//XRP Balance
+                  Text(
+                    "${widget.accountbalance} XRP",
+                    style: TextStyle(
+                      fontFamily: 'Acumin Pro',
+                      fontSize: 14,
+                      color: const Color(0xff4270b7),
+                    ),
+                  ),
+                  Divider(
+                    color: Colors.blue,
+                    thickness: .7,
+                    indent: 100,
+                    endIndent: 100,
+                  ),
+                  //Bottom Content Keypad
+                  Column(
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          style: TextStyle(
+                            fontFamily: 'Acumin Pro',
+                            fontSize: 83,
+                            color: const Color(0xff1e4579),
+                            height: 1.6024096385542168,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: '\$',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            TextSpan(
+                              text: tiplimitController.text,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        textHeightBehavior:
+                            TextHeightBehavior(applyHeightToFirstAscent: false),
+                        softWrap: false,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            '${widget.accountbalance}XRP',
+                            style: TextStyle(
+                              fontFamily: 'Acumin Pro',
+                              fontSize: 14,
+                              color: const Color(0xff4270b7),
+                              height: 2.2857142857142856,
+                            ),
+                            textHeightBehavior: TextHeightBehavior(
+                                applyHeightToFirstAscent: false),
+                            textAlign: TextAlign.right,
+                            softWrap: false,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+//123
+                            ButtonBar(
+                              alignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '1';
+                                    });
+                                  },
+                                  child: const Text(
+                                    '1',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '2';
+                                    });
+                                  },
+                                  child: Text(
+                                    '2',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '3';
+                                    });
+                                  },
+                                  child: Text(
+                                    '3',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+//456
+                            ButtonBar(
+                              alignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '4';
+                                    });
+                                  },
+                                  child: Text(
+                                    '4',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '5';
+                                    });
+                                  },
+                                  child: const Text(
+                                    '5',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '6';
+                                    });
+                                  },
+                                  child: const Text(
+                                    '6',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+//789
+                            ButtonBar(
+                              alignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '7';
+                                    });
+                                  },
+                                  child: Text(
+                                    '7',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '8';
+                                    });
+                                  },
+                                  child: Text(
+                                    '8',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '9';
+                                    });
+                                  },
+                                  child: Text(
+                                    '9',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+//0
+                            ButtonBar(
+                              alignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: const Size.fromRadius(35),
+                                      shape: const CircleBorder(
+                                          side: BorderSide.none),
+                                      primary: const Color(0xffdbd499),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        tiplimitController.text += '.';
+                                      });
+                                    },
+                                    onLongPress: () {
+                                      setState(() {
+                                        tiplimitController.clear();
+                                      });
+                                    },
+                                    child: const Icon(Icons.circle)),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size.fromRadius(35),
+                                    shape: const CircleBorder(
+                                        side: BorderSide.none),
+                                    primary: const Color(0xffdbd499),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      tiplimitController.text += '0';
+                                    });
+                                  },
+                                  child: Text(
+                                    '0',
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 48,
+                                      color: Color(0xffffffff),
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.1875,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: const Size.fromRadius(40),
+                                      shape: const CircleBorder(
+                                          side: BorderSide.none),
+                                      primary: Colors.red,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('cancel')),
+                              ],
+                            ),
+//Update
+
+                            Container(
+                              child: Center(
+                                child: TextButton(
+                                  onPressed: () {
+                                    setState() {
+                                      tiplimitController.text +=
+                                          widget.tiplimit;
+                                    }
+
+                                    print(widget.tiplimit);
+
+                                    Navigator.pop(context);
+                                  },
+//Update Text
+
+                                  child: Text(
+                                    'UPDATE',
+                                    style: TextStyle(
+                                      fontFamily: 'Acumin Pro',
+                                      fontSize: 16,
+                                      color: const Color(0xffffffff),
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              height: 50,
+                              width: 90,
+                              decoration: BoxDecoration(
+                                color: const Color(0xff4270b7),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(31.0),
+                                  topRight: Radius.circular(31.0),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+      },
     );
   }
 }
