@@ -1,5 +1,6 @@
 import 'package:app/misc/controllers.dart';
 import 'package:app/misc/strings.dart';
+import 'package:app/screens/intractivetipping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -447,7 +448,7 @@ class _BasicTipState extends State<BasicTip> {
                   onPressed: () {
                      Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Container()),
+                      MaterialPageRoute(builder: (context) => TipInteractive()),
                     );
                   },
                   child: Text(
