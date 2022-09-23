@@ -1,6 +1,8 @@
 class Shapes {
   //Right Angle
   static const rightAngle = 'assets/images/rightangle.svg';
+//Tipping Angle
+  static const tipAngle = 'assets/images/tippingangle.svg';
 }
 
 class Buttons {

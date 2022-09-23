@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		oIcdOhukt6ILqHYMPMXzOoOHZF4=
+		OGsC4b1/258R1gBAnYulcodpHws=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -116,6 +116,10 @@
 		<data>
 		5jc+lXLK4PTl8R8oMWKYkbjOBc0=
 		</data>
+		<key>flutter_assets/assets/images/tippingangle.svg</key>
+		<data>
+		JH3m5HSBWsmFKW28jPBN4nQSG+o=
+		</data>
 		<key>flutter_assets/assets/logos/tipshake_qr.png</key>
 		<data>
 		N+STaBW63P/674ybWoi/TdTPLA4=
@@ -150,7 +154,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		dBclaoYqzxg6wjnddE5WTD8ZB10=
+		RIyXy8bZ6an/8KKwdG83H60PVOk=
 		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -163,11 +167,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oIcdOhukt6ILqHYMPMXzOoOHZF4=
+			OGsC4b1/258R1gBAnYulcodpHws=
 			</data>
 			<key>hash2</key>
 			<data>
-			okDxcKNbuNkuyIf/An5fSPinb5vfGLeTWG9/r1Rtki4=
+			okweMfIKf5R+glUTF5k2ZdAQ9hN2X/hwe7AZXqlRH3c=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -423,6 +427,17 @@
 			088Bhho1U97Vfi8HzWGIuICTB+NS4Sn/jtXt+xdwFew=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/tippingangle.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JH3m5HSBWsmFKW28jPBN4nQSG+o=
+			</data>
+			<key>hash2</key>
+			<data>
+			XtUiMF8eaOZjz5Tp19BVm704kaTw8ITXUxht0Bf+f4s=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/logos/tipshake_qr.png</key>
 		<dict>
 			<key>hash</key>
@@ -515,11 +530,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dBclaoYqzxg6wjnddE5WTD8ZB10=
+			RIyXy8bZ6an/8KKwdG83H60PVOk=
 			</data>
 			<key>hash2</key>
 			<data>
-			pDnA+2xUJxa9LD/+eFfjONNcfxJg6IhMaP4XT/dkN1w=
+			wPBCgcLEo1ZRAd3mkRzNND57m0NLLp3cWujXRQikqvE=
 			</data>
 		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>

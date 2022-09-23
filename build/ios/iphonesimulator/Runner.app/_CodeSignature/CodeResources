@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		ys/P2qEgX3q+wlAxct74X5q6Nbg=
+		ZhXAFZs+FTn1XlgU1Zf1iv5rUe4=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		DyBTqICgSv8EtPDiTB/NLu9PgrA=
+		JM/nsqMLekO42Er4DSDm9gEP4P4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		oIcdOhukt6ILqHYMPMXzOoOHZF4=
+		OGsC4b1/258R1gBAnYulcodpHws=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -216,6 +216,10 @@
 		<data>
 		5jc+lXLK4PTl8R8oMWKYkbjOBc0=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/tippingangle.svg</key>
+		<data>
+		JH3m5HSBWsmFKW28jPBN4nQSG+o=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/logos/tipshake_qr.png</key>
 		<data>
 		N+STaBW63P/674ybWoi/TdTPLA4=
@@ -250,7 +254,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		dBclaoYqzxg6wjnddE5WTD8ZB10=
+		RIyXy8bZ6an/8KKwdG83H60PVOk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -749,11 +753,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ys/P2qEgX3q+wlAxct74X5q6Nbg=
+			ZhXAFZs+FTn1XlgU1Zf1iv5rUe4=
 			</data>
 			<key>hash2</key>
 			<data>
-			H+IeQnCUHuwc54wM9oTNGAmxYan0eKPcp/4rlkAb1qA=
+			Mn/qWX4bFaAhEzDIsywUUGy/3Hhf4Hu7VBPTJ2Ta3Cs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -771,22 +775,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DyBTqICgSv8EtPDiTB/NLu9PgrA=
+			JM/nsqMLekO42Er4DSDm9gEP4P4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vt+hZ/TNpZgI7TCrJxxZCEfXLGgX3DUFt7V6/VMUioQ=
+			k204dq5Zlm2SPwdSuc5l8uAaafl9kgT8S3Do0Nu5lSY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oIcdOhukt6ILqHYMPMXzOoOHZF4=
+			OGsC4b1/258R1gBAnYulcodpHws=
 			</data>
 			<key>hash2</key>
 			<data>
-			okDxcKNbuNkuyIf/An5fSPinb5vfGLeTWG9/r1Rtki4=
+			okweMfIKf5R+glUTF5k2ZdAQ9hN2X/hwe7AZXqlRH3c=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1042,6 +1046,17 @@
 			088Bhho1U97Vfi8HzWGIuICTB+NS4Sn/jtXt+xdwFew=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/tippingangle.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JH3m5HSBWsmFKW28jPBN4nQSG+o=
+			</data>
+			<key>hash2</key>
+			<data>
+			XtUiMF8eaOZjz5Tp19BVm704kaTw8ITXUxht0Bf+f4s=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/logos/tipshake_qr.png</key>
 		<dict>
 			<key>hash</key>
@@ -1134,11 +1149,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dBclaoYqzxg6wjnddE5WTD8ZB10=
+			RIyXy8bZ6an/8KKwdG83H60PVOk=
 			</data>
 			<key>hash2</key>
 			<data>
-			pDnA+2xUJxa9LD/+eFfjONNcfxJg6IhMaP4XT/dkN1w=
+			wPBCgcLEo1ZRAd3mkRzNND57m0NLLp3cWujXRQikqvE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>

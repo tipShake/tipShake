@@ -21,7 +21,7 @@ class _TipInteractiveState extends State<TipInteractive> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          toolbarHeight: 150,
+          toolbarHeight: 155,
           automaticallyImplyLeading: true,
           leading: Stack(
             fit: StackFit.expand,
@@ -38,6 +38,7 @@ class _TipInteractiveState extends State<TipInteractive> {
                     SvgPicture.asset(
                       Shapes.rightAngle,
                       height: 30,
+                      clipBehavior: Clip.none,
                     ),
 //USD Amount
                     Text(
@@ -77,6 +78,84 @@ class _TipInteractiveState extends State<TipInteractive> {
               ),
             ),
           ),
+          bottom: AppBar(
+            backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(),
+                Text("Person Your Tipping"),
+                IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      Buttons.Scan,
+                      color: Colors.white,
+                    ))
+              ],
+            ),
+          ),
+        ),
+//Tipping Amount Area
+        floatingActionButton: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Positioned(
+                bottom: 10,
+                right: 30,
+                child: SvgPicture.asset(
+                  Shapes.tipAngle,
+                )),
+            Positioned(
+              bottom: 10,
+              left: 100,
+              child: Text(
+                'tipping',
+                style: TextStyle(
+                  fontFamily: 'AcuminPro-Regular',
+                  fontSize: 14,
+                  color: const Color(0xffffffff),
+                  height: 1.5714285714285714,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textHeightBehavior:
+                    TextHeightBehavior(applyHeightToFirstAscent: false),
+                softWrap: false,
+              ),
+            ),
+            Positioned(
+              bottom: -20,
+              right: 80,
+              child: Text(
+                '0.0 XRP',
+                style: TextStyle(
+                  fontFamily: 'Acumin Pro',
+                  fontSize: 40,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.43999999999999995,
+                  fontWeight: FontWeight.w600,
+                  height: 0.575,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textHeightBehavior:
+                    TextHeightBehavior(applyHeightToFirstAscent: false),
+                textAlign: TextAlign.center,
+                softWrap: false,
+              ),
+            ),
+          ],
         ),
         body: Stack(
           children: [
