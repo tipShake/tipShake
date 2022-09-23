@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		i58speyreLWSJ6jdYtYr2Eb05OI=
+		X6zGDSW6yJ9pxeolinwQS3zh4qU=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -84,6 +84,10 @@
 		<data>
 		RIhSrqxo7dODxywoRnVfNfWjrXo=
 		</data>
+		<key>flutter_assets/assets/buttons/securitybtn.svg</key>
+		<data>
+		CfVvWqLCrr18wfe34rlmNtQkYko=
+		</data>
 		<key>flutter_assets/assets/buttons/settingsbtn.svg</key>
 		<data>
 		N4ziJ/ddjyU5N+gfu3ACJmJAjCI=
@@ -134,7 +138,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		uGYe9URNngt3pDuYQyldfs9HqmI=
+		pkCVVHTEt6v0JlZSbgVYWwt7o7g=
 		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -147,11 +151,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i58speyreLWSJ6jdYtYr2Eb05OI=
+			X6zGDSW6yJ9pxeolinwQS3zh4qU=
 			</data>
 			<key>hash2</key>
 			<data>
-			EUgELBBVUnhBcymW8+l5qoCEQsnrPcNy8Wlll0V2VoI=
+			jFjE1JhNY8qXzEK0G4rkRhS49UzD9toTgibFpU/DfJ8=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -330,6 +334,17 @@
 			KaZUhdUdKPSOvl2BriBkp7poSA0ZB04GzUNaiUuCBZY=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/buttons/securitybtn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CfVvWqLCrr18wfe34rlmNtQkYko=
+			</data>
+			<key>hash2</key>
+			<data>
+			NYTTKNpagDUjlgfLHwGppuHuWAk//M0aPvj6pVp7ciY=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/buttons/settingsbtn.svg</key>
 		<dict>
 			<key>hash</key>
@@ -455,11 +470,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uGYe9URNngt3pDuYQyldfs9HqmI=
+			pkCVVHTEt6v0JlZSbgVYWwt7o7g=
 			</data>
 			<key>hash2</key>
 			<data>
-			xcD77Qar4jQs8+Z8yHTZBVcTK1D7B7KhqykBKD1xsJQ=
+			fpPVWyHeme/3T6bN0sVF5qCNATsZZGYI4LtNT9gns+Y=
 			</data>
 		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>

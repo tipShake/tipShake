@@ -36,7 +36,10 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 //(),
 
-                TipAvatar(userpic: userpic)
+                TipAvatar(
+                  userpic: userpic,
+                  size: 130,
+                )
               ],
             ),
             Row(
@@ -45,13 +48,13 @@ class SettingsScreen extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+              children: const [
                 Text(
                   'Profile Settings',
                   style: TextStyle(
                     fontFamily: 'Acumin Pro',
                     fontSize: 20,
-                    color: const Color(0xff1e4579),
+                    color: Color(0xff1e4579),
                     fontWeight: FontWeight.w700,
                     height: 1.6,
                   ),
@@ -61,11 +64,19 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 26,
             ),
             Card(
               elevation: 0,
+              color: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(
+                  color: Colors.white,
+                  width: 2,
+                ),
+              ),
               child: Column(
                 children: [
 //Security
@@ -77,7 +88,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ),
                     leading: SvgPicture.asset(Buttons.Security),
-                    title: Text(
+                    title: const Text(
                       'Security',
                       style: TextStyle(
                         fontFamily: 'Acumin Pro',
@@ -402,13 +413,6 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              color: Colors.transparent,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(
-                    color: Colors.white,
-                    width: 5,
-                  )),
             ),
             //  SignOutButton(),
           ],

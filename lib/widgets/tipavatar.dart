@@ -6,10 +6,10 @@ import '../misc/strings.dart';
 class TipAvatar extends StatelessWidget {
   const TipAvatar({
     Key? key,
-    required this.userpic,
+    required this.userpic, required this.size,
   }) : super(key: key);
   final String userpic;
-
+  final double size;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,8 +17,8 @@ class TipAvatar extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 130,
-          width: 130,
+          height: size,
+          width: size,
           decoration: BoxDecoration(
             color: const Color(0xff818181),
             borderRadius: BorderRadius.all(
