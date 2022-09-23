@@ -68,7 +68,7 @@ class SettingsScreen extends StatelessWidget {
               elevation: 0,
               child: Column(
                 children: [
-                  //Security
+//Security
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -76,10 +76,7 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => SecurityScreen(),
                       ),
                     ),
-                    leading: Icon(
-                      Icons.fingerprint,
-                      color: Colors.white,
-                    ),
+                    leading: SvgPicture.asset(Buttons.Security),
                     title: Text(
                       'Security',
                       style: TextStyle(
@@ -110,7 +107,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Daily Limit
+//Daily Limit
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -118,7 +115,11 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => Container(),
                       ),
                     ),
-                    leading: SvgPicture.asset(Logos.XRP),
+                    leading: SvgPicture.asset(
+                      Logos.XRP,
+                      height: 35,
+                      width: 35,
+                    ),
                     title: Text(
                       'Daily Tipping Limit',
                       style: TextStyle(
@@ -149,7 +150,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Summ Wallet
+//Summ Wallet
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -157,7 +158,7 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => Container(),
                       ),
                     ),
-                    leading: Icon(Icons.wallet),
+                    leading: SvgPicture.asset(Buttons.Wallet),
                     title: Text(
                       'Setup your Xumm wallet',
                       style: TextStyle(
@@ -188,7 +189,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Change Crypto
+//Change Crypto
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -196,10 +197,7 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => Container(),
                       ),
                     ),
-                    leading: Icon(
-                      Icons.money_rounded,
-                      color: Colors.white,
-                    ),
+                    leading: SvgPicture.asset(Buttons.Crypto),
                     title: Text(
                       'Change Cryptocurrency',
                       style: TextStyle(
@@ -230,7 +228,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Change Currency
+//Change Currency
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -282,7 +280,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Change Language
+//Change Language
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -324,8 +322,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-
-                  //Change Swipe Amount
+//Change Swipe Amount
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -333,10 +330,7 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => Container(),
                       ),
                     ),
-                    leading: Icon(
-                      Icons.payments,
-                      color: Colors.white,
-                    ),
+                    leading: SvgPicture.asset(Buttons.SwipeAmount),
                     title: Text(
                       'Change Swipe Amount',
                       style: TextStyle(
@@ -367,7 +361,7 @@ class SettingsScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  //Education
+//Education
                   ListTile(
                     onTap: () => Navigator.push(
                       context,
@@ -375,10 +369,7 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => EducationScreen(),
                       ),
                     ),
-                    leading: Icon(
-                      Icons.local_library,
-                      color: Colors.white,
-                    ),
+                    leading: SvgPicture.asset(Buttons.Education),
                     title: Text(
                       'Education',
                       style: TextStyle(

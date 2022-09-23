@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		sW0rRamn5BSgMpLlThq5Rp9c9bo=
+		DuwJQUmntbdau/VQvCPd2GQyfqk=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		dZBdT5h1gRjRry3EAbKEWC575pc=
+		xL3SWUe7k9nSTX9+IpcQnPeRK/Y=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		vl6ueJenuLgu0yEbUjoxIGmAW3U=
+		i58speyreLWSJ6jdYtYr2Eb05OI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -148,6 +148,14 @@
 		<data>
 		rHamorQnhz2oldNF73Ix7pLV3Ec=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/%C2%A5btn.svg</key>
+		<data>
+		eqlntk6bZi2FprI+DQ+wMK5Wcu4=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/coinbtn.svg</key>
+		<data>
+		vZ1/ZJk4U1gjoH5rfqwQkeVcH2o=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/contatcsbtn.svg</key>
 		<data>
 		v5zYplTIVdTAKC1jjyfbEYq9PJI=
@@ -163,6 +171,10 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/homebtn.svg</key>
 		<data>
 		3l7f2hqTC+hGqqZT9GjWc/GILbw=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/languagebtn.svg</key>
+		<data>
+		8dkGHqG75NLZ7pWUklD57rI0PFU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/qrbtn.svg</key>
 		<data>
@@ -183,6 +195,10 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/swipeamountbtn.svg</key>
 		<data>
 		vEbSdbhAZofGGvXaEwqfmmPA0Js=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/walletbtn.svg</key>
+		<data>
+		rLo4+c4j3o1WQZx2MMR9S+O9yyo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/legal.svg</key>
 		<data>
@@ -218,7 +234,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		aGUKdSUl703Smnx6CqiiPi+yKPY=
+		uGYe9URNngt3pDuYQyldfs9HqmI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -717,11 +733,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sW0rRamn5BSgMpLlThq5Rp9c9bo=
+			DuwJQUmntbdau/VQvCPd2GQyfqk=
 			</data>
 			<key>hash2</key>
 			<data>
-			I/Xa1oBSLn86hh6m3od+Zf/vLUsRxfR6TbTfSELLnBc=
+			ZeJ6AIVJ8ELXX/BuDoximSCSSCsFMHKc95dwmaTtTAw=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -739,22 +755,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dZBdT5h1gRjRry3EAbKEWC575pc=
+			xL3SWUe7k9nSTX9+IpcQnPeRK/Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			qGh31D/O/aPzMFOxh6+DQulZ4kPzj1r25hgilLfpRQE=
+			lt3bLyXHPwSpIptu7rRyICZImzwVJyVU5yCWcvg+rT0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vl6ueJenuLgu0yEbUjoxIGmAW3U=
+			i58speyreLWSJ6jdYtYr2Eb05OI=
 			</data>
 			<key>hash2</key>
 			<data>
-			9nh/cVOtb1RcZyYOia165Bx/QrOdgFfOQYoIg+P6EI0=
+			EUgELBBVUnhBcymW8+l5qoCEQsnrPcNy8Wlll0V2VoI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -823,6 +839,28 @@
 			6Z1QGb7Igvv3mYsQqadoEZVG0ZVWd+mJF63EG7nk4DU=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/%C2%A5btn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eqlntk6bZi2FprI+DQ+wMK5Wcu4=
+			</data>
+			<key>hash2</key>
+			<data>
+			hXwBQFooC0NlD/Wau+DwhAPRRzTDjEAbdqUkdT1xOTU=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/coinbtn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vZ1/ZJk4U1gjoH5rfqwQkeVcH2o=
+			</data>
+			<key>hash2</key>
+			<data>
+			Un4HNUhEecCqBUY++QqszbH6soaC0zvppVAjlztzXqc=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/contatcsbtn.svg</key>
 		<dict>
 			<key>hash</key>
@@ -865,6 +903,17 @@
 			<key>hash2</key>
 			<data>
 			mMlBRJQDxazG58rXh9BMao16XResPzV2ZPKa6Zi9Kas=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/languagebtn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8dkGHqG75NLZ7pWUklD57rI0PFU=
+			</data>
+			<key>hash2</key>
+			<data>
+			LWy5QEVEM1n8uplYQxTYOARGWTKNpsJK4hdIwp77eTE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/buttons/qrbtn.svg</key>
@@ -920,6 +969,17 @@
 			<key>hash2</key>
 			<data>
 			FYBirD7cnBmKGwxPeDaZB7EVvPkYfrBSyyzy1HF0ryY=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/buttons/walletbtn.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rLo4+c4j3o1WQZx2MMR9S+O9yyo=
+			</data>
+			<key>hash2</key>
+			<data>
+			7t4FAnsYBm7kEMNx5KZK8thYct5eJkM6th4CXYqaxMQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/legal.svg</key>
@@ -1014,11 +1074,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aGUKdSUl703Smnx6CqiiPi+yKPY=
+			uGYe9URNngt3pDuYQyldfs9HqmI=
 			</data>
 			<key>hash2</key>
 			<data>
-			NlcdTdgh+75BX4pxm9nbW0hcPuBhb8LceD3jPN0u1Tc=
+			xcD77Qar4jQs8+Z8yHTZBVcTK1D7B7KhqykBKD1xsJQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/vm_snapshot_data</key>

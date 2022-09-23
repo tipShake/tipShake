@@ -16,10 +16,25 @@ class Buttons {
   static const Contacts = 'assets/buttons/contatcsbtn.svg';
   //Create NFT Circle Button
   static const CreateNFT = 'assets/buttons/createnftbtn.svg';
-  //Change Swipe AMount
+  // Swipe Button
   static const SwipeAmount = 'assets/buttons/swipeamountbtn.svg';
   //Education Button
   static const Education = 'assets/buttons/educationbtn.svg';
+  //Security Button
+  static const Security = 'assets/buttons/securitybtn.svg';
+  //Wallet Button
+  static const Wallet = 'assets/buttons/walletbtn.svg';
+  //Change Crypto Button
+  static const Crypto = 'assets/buttons/coinbtn.svg';
+  //Change Currency Button
+  static const Currency = 'assets/buttons/¥btn.svg';
+  //Change Language Button
+    static const Language = 'assets/buttons/languagebtn.svg';
+
+
+  
+
+
 }
 
 class Bills {
