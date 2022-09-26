@@ -161,7 +161,7 @@ class _BasicTipState extends State<BasicTip> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      //123
+//123
                       ButtonBar(
                         alignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -233,7 +233,7 @@ class _BasicTipState extends State<BasicTip> {
                           ),
                         ],
                       ),
-                      //456
+//456
                       ButtonBar(
                         alignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -305,7 +305,7 @@ class _BasicTipState extends State<BasicTip> {
                           ),
                         ],
                       ),
-                      //789
+//789
                       ButtonBar(
                         alignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -377,7 +377,7 @@ class _BasicTipState extends State<BasicTip> {
                           ),
                         ],
                       ),
-                      //0
+//0
                       ButtonBar(
                         alignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -423,7 +423,7 @@ class _BasicTipState extends State<BasicTip> {
                 SizedBox(
                   height: 27,
                 ),
-                //Confirm Button Tip
+//Confirm Button Tip
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -443,10 +443,10 @@ class _BasicTipState extends State<BasicTip> {
                   height: 18,
                 ),
 
-///TODO Import Unity AR
+                ///TODO Import Unity AR
                 TextButton(
                   onPressed: () {
-                     Navigator.pushReplacement(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => TipInteractive()),
                     );

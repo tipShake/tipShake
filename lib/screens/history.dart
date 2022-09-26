@@ -45,8 +45,7 @@ class _HistoryState extends State<History> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          //SearchField
-
+//SearchField
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60),
             child: Row(

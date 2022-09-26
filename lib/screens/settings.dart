@@ -120,12 +120,9 @@ class SettingsScreen extends StatelessWidget {
                   ),
 //Daily Limit
                   ListTile(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Container(),
-                      ),
-                    ),
+                    onTap:(){
+                      
+                    },
                     leading: SvgPicture.asset(
                       Logos.XRP,
                       height: 35,

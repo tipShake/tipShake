@@ -6,8 +6,9 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import '../misc/strings.dart';
 
 class TipInteractive extends StatefulWidget {
-  const TipInteractive({Key? key}) : super(key: key);
+  const TipInteractive({Key? key, this.whototip}) : super(key: key);
 
+  final whototip;
   @override
   State<TipInteractive> createState() => _TipInteractiveState();
 }
@@ -85,7 +86,7 @@ class _TipInteractiveState extends State<TipInteractive> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircleAvatar(),
-                Text("Person Your Tipping"),
+                Text(widget.whototip),
                 IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(

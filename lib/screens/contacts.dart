@@ -1,3 +1,4 @@
+import 'package:app/screens/intractivetipping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -45,7 +46,7 @@ class _ContactsState extends State<Contacts> {
                 TextHeightBehavior(applyHeightToFirstAscent: false),
             softWrap: false,
           ),
-          //SearchField
+//SearchField
 
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60),
@@ -101,7 +102,9 @@ class _ContactsState extends State<Contacts> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Container(),
+                      builder: (context) => TipInteractive(
+                        whototip: UserNames[index],
+                      ),
                     ));
               },
               child: ListTile(
@@ -118,8 +121,34 @@ class _ContactsState extends State<Contacts> {
                   '!${TipIds[index]}',
                 ),
                 //TS Icon
-                ///TODO Fix keeps turing white!
-                trailing: SvgPicture.asset(Buttons.Tip),
+                trailing: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff1e4579),
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        border: Border.all(
+                            width: 1.0, color: const Color(0xffffffff)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SvgPicture.asset(
+                      Buttons.Home,
+                      width: 35,
+                      height: 35,
+                    ),
+                  ],
+                ),
               ),
             );
           },
