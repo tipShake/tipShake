@@ -10,7 +10,7 @@ void main() async {
     theme: ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
     ),
-    home: const homeScreen(
+    home:  homeScreen(
       username: 'Larry',
       accountbalance: '100.00',
       email: 'lilghostdancer@gmail.com',

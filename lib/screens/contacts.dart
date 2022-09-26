@@ -103,8 +103,8 @@ class _ContactsState extends State<Contacts> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => TipInteractive(
-                        whototip: UserNames[index],
-                      ),
+                          // whototip: UserNames[index],
+                          ),
                     ));
               },
               child: ListTile(
